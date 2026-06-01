@@ -17,10 +17,13 @@ export const Route = createFileRoute("/codroipo-ce")({
         property: "og:description",
         content: "Far crescere il valore del territorio del Medio Friuli.",
       },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/codroipo-ce" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/codroipo-ce" }],
   }),
   component: CodroipoPage,
 });
+
 
 function CodroipoPage() {
   const { t } = useT();

@@ -80,31 +80,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Piergiorgio Iacuzzo — Presidente ASD Atletica 2000 e Codroipo C'è" },
+      { title: "Piergiorgio Iacuzzo — Medio Friuli" },
       {
         name: "description",
         content:
           "Profilo ufficiale di Piergiorgio Iacuzzo: imprenditore e presidente delle realtà associative del Medio Friuli.",
       },
       { name: "author", content: "Piergiorgio Iacuzzo" },
-      {
-        property: "og:title",
-        content: "Piergiorgio Iacuzzo — Medio Friuli",
-      },
-      {
-        property: "og:description",
-        content:
-          "Vent'anni al servizio dello sport e della comunità del Medio Friuli.",
-      },
+      { property: "og:site_name", content: "Piergiorgio Iacuzzo" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Piergiorgio Iacuzzo — Presidente ASD Atletica 2000 e Codroipo C'è" },
-      { name: "twitter:title", content: "Piergiorgio Iacuzzo — Presidente ASD Atletica 2000 e Codroipo C'è" },
-      { name: "description", content: "Un bon amì al vàl plui di un tesaur, parcé che il mût al cambie, ma l'amicezia col cûr e reste par simpri." },
-      { property: "og:description", content: "Un bon amì al vàl plui di un tesaur, parcé che il mût al cambie, ma l'amicezia col cûr e reste par simpri." },
-      { name: "twitter:description", content: "Un bon amì al vàl plui di un tesaur, parcé che il mût al cambie, ma l'amicezia col cûr e reste par simpri." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/iME4qutiMvQWTfEWBPjGKRFf98H3/social-images/social-1780337717485-1000396576.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/iME4qutiMvQWTfEWBPjGKRFf98H3/social-images/social-1780337717485-1000396576.webp" },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/iME4qutiMvQWTfEWBPjGKRFf98H3/social-images/social-1780337717485-1000396576.webp",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/iME4qutiMvQWTfEWBPjGKRFf98H3/social-images/social-1780337717485-1000396576.webp",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -115,12 +111,45 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Piergiorgio Iacuzzo",
+          url: "https://piergiorgioiacuzzo.it",
+          inLanguage: "it-IT",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Piergiorgio Iacuzzo",
+          url: "https://piergiorgioiacuzzo.it",
+          jobTitle: "Presidente ASD Atletica 2000 e Codroipo C'è",
+          worksFor: [
+            { "@type": "SportsOrganization", name: "ASD Atletica 2000", url: "https://www.atletica2000.it" },
+            { "@type": "Organization", name: "Codroipo C'è", url: "https://www.codroipoce.it" },
+          ],
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Codroipo",
+            addressRegion: "Friuli-Venezia Giulia",
+            addressCountry: "IT",
+          },
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
+
 
 function RootShell({ children }: { children: ReactNode }) {
   return (

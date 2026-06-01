@@ -20,8 +20,12 @@ export const Route = createFileRoute("/news/")({
         content: "Aggiornamenti, comunicati e racconti dal territorio del Medio Friuli.",
       },
       { property: "og:title", content: "News — Piergiorgio Iacuzzo" },
+      { property: "og:description", content: "Aggiornamenti, comunicati e racconti dal territorio del Medio Friuli." },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/news" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/news" }],
   }),
+
   loader: ({ context }) => context.queryClient.ensureQueryData(newsQO),
   component: NewsPage,
   errorComponent: ({ error }) => (

@@ -16,10 +16,13 @@ export const Route = createFileRoute("/valori")({
         property: "og:description",
         content: "Territorio, concretezza, inclusione, squadra.",
       },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/valori" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/valori" }],
   }),
   component: ValoriPage,
 });
+
 
 function ValoriPage() {
   const { t } = useT();

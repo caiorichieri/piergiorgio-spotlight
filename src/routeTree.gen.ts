@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ValoriRouteImport } from './routes/valori'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as MeetingRouteImport } from './routes/meeting'
 import { Route as GalleriaRouteImport } from './routes/galleria'
 import { Route as ContattiRouteImport } from './routes/contatti'
@@ -24,6 +25,11 @@ import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 const ValoriRoute = ValoriRouteImport.update({
   id: '/valori',
   path: '/valori',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MeetingRoute = MeetingRouteImport.update({
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/contatti': typeof ContattiRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/contatti': typeof ContattiRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/contatti': typeof ContattiRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/contatti'
     | '/galleria'
     | '/meeting'
+    | '/sitemap.xml'
     | '/valori'
     | '/news/$slug'
     | '/news/'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/contatti'
     | '/galleria'
     | '/meeting'
+    | '/sitemap.xml'
     | '/valori'
     | '/news/$slug'
     | '/news'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/contatti'
     | '/galleria'
     | '/meeting'
+    | '/sitemap.xml'
     | '/valori'
     | '/news/$slug'
     | '/news/'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   ContattiRoute: typeof ContattiRoute
   GalleriaRoute: typeof GalleriaRoute
   MeetingRoute: typeof MeetingRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ValoriRoute: typeof ValoriRoute
   NewsSlugRoute: typeof NewsSlugRoute
   NewsIndexRoute: typeof NewsIndexRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/valori'
       fullPath: '/valori'
       preLoaderRoute: typeof ValoriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/meeting': {
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContattiRoute: ContattiRoute,
   GalleriaRoute: GalleriaRoute,
   MeetingRoute: MeetingRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ValoriRoute: ValoriRoute,
   NewsSlugRoute: NewsSlugRoute,
   NewsIndexRoute: NewsIndexRoute,

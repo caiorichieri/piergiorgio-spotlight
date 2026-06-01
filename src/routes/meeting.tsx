@@ -17,10 +17,13 @@ export const Route = createFileRoute("/meeting")({
         property: "og:description",
         content: "Top 5 in Italia · World Athletics Continental Tour.",
       },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/meeting" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/meeting" }],
   }),
   component: MeetingPage,
 });
+
 
 function MeetingPage() {
   const { t } = useT();

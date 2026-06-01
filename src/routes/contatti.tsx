@@ -15,10 +15,14 @@ export const Route = createFileRoute("/contatti")({
         content: "Scrivi a Piergiorgio Iacuzzo, ASD Atletica 2000 e Codroipo C'è.",
       },
       { property: "og:title", content: "Contatti — Piergiorgio Iacuzzo" },
+      { property: "og:description", content: "Scrivi a Piergiorgio Iacuzzo, ASD Atletica 2000 e Codroipo C'è." },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/contatti" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/contatti" }],
   }),
   component: ContactPage,
 });
+
 
 type Status = "idle" | "sending" | "ok" | "err";
 

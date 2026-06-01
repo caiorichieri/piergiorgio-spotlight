@@ -17,10 +17,13 @@ export const Route = createFileRoute("/atletica-2000")({
         property: "og:description",
         content: "Eccellenza nazionale dell'atletica dal Medio Friuli.",
       },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/atletica-2000" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/atletica-2000" }],
   }),
   component: AtleticaPage,
 });
+
 
 function AtleticaPage() {
   const { t } = useT();

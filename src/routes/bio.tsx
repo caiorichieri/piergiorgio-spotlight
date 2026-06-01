@@ -18,10 +18,13 @@ export const Route = createFileRoute("/bio")({
         content:
           "Imprenditore di Codroipo, presidente di ASD Atletica 2000 e Codroipo C'è.",
       },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/bio" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/bio" }],
   }),
   component: BioPage,
 });
+
 
 function BioPage() {
   const { t } = useT();

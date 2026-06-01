@@ -11,11 +11,11 @@ import logoPGFriuli from "../assets/logo-pg-friuli-trasparente.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Piergiorgio Iacuzzo — Presidente Atletica 2000 e Codroipo C'è" },
+      { title: "Piergiorgio Iacuzzo — Atletica 2000 e Codroipo C'è" },
       {
         name: "description",
         content:
-          "Profilo ufficiale di Piergiorgio Iacuzzo: presidente di ASD Atletica 2000 e Codroipo C'è, imprenditore del Medio Friuli.",
+          "Imprenditore del Medio Friuli, presidente di ASD Atletica 2000 e di Codroipo C'è. Vent'anni al servizio dello sport e della comunità.",
       },
       { property: "og:title", content: "Piergiorgio Iacuzzo — Medio Friuli" },
       {
@@ -23,12 +23,15 @@ export const Route = createFileRoute("/")({
         content:
           "Vent'anni al servizio dello sport e della comunità del Medio Friuli.",
       },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/" },
       { property: "og:image", content: portrait.url },
       { name: "twitter:image", content: portrait.url },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/" }],
   }),
   component: HomePage,
 });
+
 
 function HomePage() {
   const { t } = useT();
@@ -74,7 +77,11 @@ function HomePage() {
               Piergiorgio
               <br />
               <span className="italic text-accent">Iacuzzo.</span>
+              <span className="mt-3 block font-sans text-base font-normal not-italic leading-snug text-primary-foreground/80 sm:text-lg md:text-xl">
+                Presidente ASD Atletica 2000 e Codroipo C'è · Medio Friuli
+              </span>
             </h1>
+
 
             <div className="mt-6 max-w-2xl space-y-1 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground/75 sm:text-sm">
               <div>— {t("hero_role_1")}</div>
@@ -114,10 +121,15 @@ function HomePage() {
               <img
                 src={portrait.url}
                 alt="Piergiorgio Iacuzzo"
+                width={800}
+                height={1000}
                 className="absolute inset-x-0 bottom-0 mx-auto h-full w-auto select-none object-contain"
                 style={{ filter: "drop-shadow(0 24px 30px rgba(0,0,0,0.35))" }}
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
+
             </div>
 
             <div className="absolute -bottom-2 -left-2 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur sm:block lg:-left-6">
