@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as BioRouteImport } from './routes/bio'
+import { Route as Atletica2000RouteImport } from './routes/atletica-2000'
 import { Route as IndexRouteImport } from './routes/index'
 
 const BioRoute = BioRouteImport.update({
   id: '/bio',
   path: '/bio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Atletica2000Route = Atletica2000RouteImport.update({
+  id: '/atletica-2000',
+  path: '/atletica-2000',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bio'
+  fullPaths: '/' | '/atletica-2000' | '/bio'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bio'
-  id: '__root__' | '/' | '/bio'
+  to: '/' | '/atletica-2000' | '/bio'
+  id: '__root__' | '/' | '/atletica-2000' | '/bio'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  Atletica2000Route: typeof Atletica2000Route
   BioRoute: typeof BioRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/bio'
       fullPath: '/bio'
       preLoaderRoute: typeof BioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atletica-2000': {
+      id: '/atletica-2000'
+      path: '/atletica-2000'
+      fullPath: '/atletica-2000'
+      preLoaderRoute: typeof Atletica2000RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  Atletica2000Route: Atletica2000Route,
   BioRoute: BioRoute,
 }
 export const routeTree = rootRouteImport
