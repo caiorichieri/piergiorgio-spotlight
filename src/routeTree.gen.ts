@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as MeetingRouteImport } from './routes/meeting'
 import { Route as BioRouteImport } from './routes/bio'
 import { Route as Atletica2000RouteImport } from './routes/atletica-2000'
 import { Route as IndexRouteImport } from './routes/index'
 
+const MeetingRoute = MeetingRouteImport.update({
+  id: '/meeting',
+  path: '/meeting',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BioRoute = BioRouteImport.update({
   id: '/bio',
   path: '/bio',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
+  '/meeting': typeof MeetingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
+  '/meeting': typeof MeetingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
+  '/meeting': typeof MeetingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atletica-2000' | '/bio'
+  fullPaths: '/' | '/atletica-2000' | '/bio' | '/meeting'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atletica-2000' | '/bio'
-  id: '__root__' | '/' | '/atletica-2000' | '/bio'
+  to: '/' | '/atletica-2000' | '/bio' | '/meeting'
+  id: '__root__' | '/' | '/atletica-2000' | '/bio' | '/meeting'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   Atletica2000Route: typeof Atletica2000Route
   BioRoute: typeof BioRoute
+  MeetingRoute: typeof MeetingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/meeting': {
+      id: '/meeting'
+      path: '/meeting'
+      fullPath: '/meeting'
+      preLoaderRoute: typeof MeetingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bio': {
       id: '/bio'
       path: '/bio'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   Atletica2000Route: Atletica2000Route,
   BioRoute: BioRoute,
+  MeetingRoute: MeetingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
