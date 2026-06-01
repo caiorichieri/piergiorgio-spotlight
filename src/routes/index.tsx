@@ -2,11 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ExternalLink, Award } from "lucide-react";
 import { useT } from "../i18n";
 import { Reveal, SectionEyebrow } from "../components/Reveal";
-import portrait from "../assets/piergiorgio-portrait.jpg.asset.json";
+import portrait from "../assets/piergiorgio-cutout.png.asset.json";
 import medal from "../assets/medaglia-paralimpico.jpg.asset.json";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
-import logoPGFriuli from "../assets/logo-pg-friuli.png.asset.json";
+import logoPGFriuli from "../assets/logo-pg-friuli-trasparente.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,21 +41,16 @@ function HomePage() {
 
   return (
     <>
-      {/* HERO — split with real portrait */}
+      {/* HERO — editorial composition: yellow disc + cutout figure + watermark logo */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="hero-line" style={{ top: "22%", animationDelay: "0s" }} />
           <div className="hero-line" style={{ top: "58%", animationDelay: "2.5s" }} />
-          <div
-            className="absolute -right-32 -top-32 h-96 w-96 rounded-full opacity-25 blur-3xl"
-            style={{ background: "var(--brand-gold)" }}
-          />
+          {/* large watermark stamp logo */}
           <img
             src={logoPGFriuli.url}
-            alt="PG Friuli — Orgoglio e Tradizione"
-            className="pointer-events-none absolute -right-16 -top-10 h-72 w-72 select-none opacity-90 drop-shadow-2xl md:h-96 md:w-96 lg:-right-20 lg:-top-16"
-            style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.35))" }}
-            loading="eager"
+            alt=""
+            className="absolute -left-24 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 select-none opacity-[0.07] md:-left-16 md:h-[34rem] md:w-[34rem]"
           />
           <div
             className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full opacity-15 blur-3xl"
@@ -108,23 +103,37 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative lg:col-span-5">
-            <div className="photo-frame mx-auto max-w-md lg:ml-auto">
+          {/* Portrait composition: yellow disc + cutout figure */}
+          <div className="relative mx-auto w-full max-w-md lg:col-span-5 lg:ml-auto">
+            <div className="relative aspect-[4/5] w-full">
+              <div
+                aria-hidden
+                className="absolute inset-x-4 bottom-0 top-12 rounded-full"
+                style={{ background: "var(--brand-yellow)" }}
+              />
+              <div
+                aria-hidden
+                className="absolute inset-x-4 bottom-0 top-12 rounded-full border border-primary-foreground/15"
+              />
+              <div className="pointer-events-none absolute -left-2 top-20 hidden origin-top-left -rotate-90 font-mono text-[10px] uppercase tracking-[0.32em] text-primary-foreground/55 md:block">
+                Presidente · Medio Friuli · 2005—
+              </div>
               <img
                 src={portrait.url}
                 alt="Piergiorgio Iacuzzo"
-                className="block h-auto w-full"
+                className="absolute inset-x-0 bottom-0 mx-auto h-[110%] w-auto select-none object-contain"
+                style={{ filter: "drop-shadow(0 24px 30px rgba(0,0,0,0.35))" }}
                 loading="eager"
               />
             </div>
-            {/* floating KPI tile */}
-            <div className="absolute -bottom-6 -left-2 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur sm:block lg:-left-10">
+
+            <div className="absolute -bottom-2 -left-2 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur sm:block lg:-left-10">
               <div className="font-serif text-3xl leading-none text-primary">456</div>
               <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 {t("hero_kpi1_label")}
               </div>
             </div>
-            <div className="absolute -top-4 right-0 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur md:block">
+            <div className="absolute -top-2 right-0 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur md:block">
               <div className="font-serif text-3xl leading-none text-primary">5.000</div>
               <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 {t("hero_kpi2_label")}
