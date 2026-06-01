@@ -1,4 +1,4 @@
-export const it = {
+export const it: Record<string, string> & Dict0 = {
   // nav
   nav_home: "Home",
   nav_bio: "Biografia",
