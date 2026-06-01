@@ -98,6 +98,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Piergiorgio Iacuzzo — Presidente ASD Atletica 2000 e Codroipo C'è" },
+      { name: "twitter:title", content: "Piergiorgio Iacuzzo — Presidente ASD Atletica 2000 e Codroipo C'è" },
+      { name: "description", content: "Un bon amì al vàl plui di un tesaur, parcé che il mût al cambie, ma l'amicezia col cûr e reste par simpri." },
+      { property: "og:description", content: "Un bon amì al vàl plui di un tesaur, parcé che il mût al cambie, ma l'amicezia col cûr e reste par simpri." },
+      { name: "twitter:description", content: "Un bon amì al vàl plui di un tesaur, parcé che il mût al cambie, ma l'amicezia col cûr e reste par simpri." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/iME4qutiMvQWTfEWBPjGKRFf98H3/social-images/social-1780337717485-1000396576.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/iME4qutiMvQWTfEWBPjGKRFf98H3/social-images/social-1780337717485-1000396576.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
