@@ -11,11 +11,11 @@ import logoPGFriuli from "../assets/logo-pg-friuli-trasparente.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Piergiorgio Iacuzzo — Presidente Atletica 2000 e Codroipo C'è" },
+      { title: "Piergiorgio Iacuzzo — Atletica 2000 e Codroipo C'è" },
       {
         name: "description",
         content:
-          "Profilo ufficiale di Piergiorgio Iacuzzo: presidente di ASD Atletica 2000 e Codroipo C'è, imprenditore del Medio Friuli.",
+          "Imprenditore del Medio Friuli, presidente di ASD Atletica 2000 e di Codroipo C'è. Vent'anni al servizio dello sport e della comunità.",
       },
       { property: "og:title", content: "Piergiorgio Iacuzzo — Medio Friuli" },
       {
@@ -23,12 +23,15 @@ export const Route = createFileRoute("/")({
         content:
           "Vent'anni al servizio dello sport e della comunità del Medio Friuli.",
       },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/" },
       { property: "og:image", content: portrait.url },
       { name: "twitter:image", content: portrait.url },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/" }],
   }),
   component: HomePage,
 });
+
 
 function HomePage() {
   const { t } = useT();
