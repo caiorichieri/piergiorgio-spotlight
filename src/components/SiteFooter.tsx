@@ -1,25 +1,45 @@
 import { Link } from "@tanstack/react-router";
+import { ExternalLink } from "lucide-react";
 import { useT } from "../i18n";
+import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
+import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
+import logoFriulion from "../assets/logo-friulion.png.asset.json";
 
 export function SiteFooter() {
   const { t } = useT();
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 border-t border-border bg-primary text-primary-foreground">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
-        <div>
+    <footer className="mt-24 bg-primary text-primary-foreground">
+      {/* Italy tricolore top edge */}
+      <div className="flex h-1 w-full">
+        <div className="flex-1" style={{ background: "#008C45" }} />
+        <div className="flex-1" style={{ background: "#F4F5F0" }} />
+        <div className="flex-1" style={{ background: "#CD212A" }} />
+      </div>
+
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-12">
+        <div className="md:col-span-5">
           <div className="font-serif text-2xl font-semibold">Piergiorgio Iacuzzo</div>
-          <p className="mt-3 max-w-sm text-sm text-primary-foreground/75">
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-primary-foreground/75">
             {t("footer_tagline")}
           </p>
+          <div className="mt-5 flex items-center gap-3">
+            <span className="flag-italy" aria-label="Italia">
+              <span /><span /><span />
+            </span>
+            <span className="flag-friuli" aria-label="Friuli">FVG</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground/60">
+              Medio Friuli · Italia
+            </span>
+          </div>
         </div>
 
-        <div>
-          <div className="mb-3 text-xs font-mono uppercase tracking-[0.18em] text-primary-foreground/60">
+        <div className="md:col-span-3">
+          <div className="mb-4 text-xs font-mono uppercase tracking-[0.18em] text-primary-foreground/55">
             {t("footer_links_heading")}
           </div>
-          <ul className="grid grid-cols-2 gap-y-1.5 text-sm">
+          <ul className="grid grid-cols-2 gap-y-1.5 text-sm md:grid-cols-1">
             {[
               ["/bio", "nav_bio"],
               ["/atletica-2000", "nav_atletica"],
@@ -43,21 +63,70 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div>
-          <div className="mb-3 text-xs font-mono uppercase tracking-[0.18em] text-primary-foreground/60">
+        <div className="md:col-span-4">
+          <div className="mb-4 text-xs font-mono uppercase tracking-[0.18em] text-primary-foreground/55">
             {t("footer_assoc_heading")}
           </div>
-          <ul className="space-y-1.5 text-sm text-primary-foreground/80">
-            <li>ASD Atletica 2000 — Codroipo (UD)</li>
-            <li>Codroipo C'è — Medio Friuli</li>
+          <ul className="space-y-3">
+            <li>
+              <a
+                href="https://www.atletica2000.it"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group flex items-center gap-3 rounded-md border border-primary-foreground/10 bg-primary-foreground/5 p-3 transition-colors hover:border-accent/60 hover:bg-primary-foreground/10"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-white p-1">
+                  <img src={logoAtletica.url} alt="ASD Atletica 2000" className="h-full w-full object-contain" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm font-medium">ASD Atletica 2000</span>
+                  <span className="block truncate text-[11px] text-primary-foreground/60">atletica2000.it</span>
+                </span>
+                <ExternalLink size={14} className="text-primary-foreground/50 group-hover:text-accent" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.codroipoce.it"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group flex items-center gap-3 rounded-md border border-primary-foreground/10 bg-primary-foreground/5 p-3 transition-colors hover:border-accent/60 hover:bg-primary-foreground/10"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-white p-1">
+                  <img src={logoCodroipo.url} alt="Codroipo C'è" className="h-full w-full object-contain" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm font-medium">Codroipo C'è</span>
+                  <span className="block truncate text-[11px] text-primary-foreground/60">codroipoce.it</span>
+                </span>
+                <ExternalLink size={14} className="text-primary-foreground/50 group-hover:text-accent" />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-primary-foreground/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-4 py-5 text-xs text-primary-foreground/60 sm:flex-row sm:items-center sm:px-6">
-          <div>© {year} Piergiorgio Iacuzzo. {t("footer_rights")}</div>
-          <div className="font-mono uppercase tracking-[0.18em]">Medio Friuli · FVG · Italia</div>
+      {/* Creator credit */}
+      <div className="border-t border-primary-foreground/10 bg-primary-foreground/[0.03]">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 py-6 sm:px-6 md:flex-row md:items-center">
+          <div className="flex items-center gap-3">
+            <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-primary-foreground/55">
+              {t("footer_credit_intro")}
+            </span>
+            <a
+              href="#"
+              className="flex items-center gap-2 rounded-md bg-white px-3 py-1.5 transition-transform hover:-translate-y-0.5"
+              aria-label="FriuliOn"
+            >
+              <img src={logoFriulion.url} alt="FriuliOn" className="h-6 w-auto" />
+            </a>
+            <span className="hidden text-[11px] text-primary-foreground/55 sm:inline">
+              · {t("footer_credit_role")}
+            </span>
+          </div>
+          <div className="text-[11px] text-primary-foreground/55">
+            © {year} Piergiorgio Iacuzzo. {t("footer_rights")}
+          </div>
         </div>
       </div>
     </footer>
