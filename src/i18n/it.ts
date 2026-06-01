@@ -155,9 +155,29 @@ export const it = {
     "Vent'anni al servizio dello sport e della comunità del Medio Friuli.",
   footer_links_heading: "Navigazione",
   footer_assoc_heading: "Associazioni",
+  footer_visit: "Visita il sito",
   footer_rights: "Tutti i diritti riservati.",
+  footer_credit_intro: "Sito ideato e realizzato da",
+  footer_credit_role: "Comunicazione digitale · Friuli Venezia Giulia",
+
+  // medal / recognition
+  medal_tag: "Riconoscimento ufficiale",
+  medal_title: "Stella di Bronzo al Merito Sportivo",
+  medal_authority: "Comitato Italiano Paralimpico",
+  medal_text:
+    "Per il lavoro pionieristico nell'inclusione paralimpica all'interno della ASD Atletica 2000, Piergiorgio Iacuzzo ha ricevuto la Stella di Bronzo al Merito Sportivo del CIP — il più alto riconoscimento ufficiale per chi ha contribuito allo sviluppo dello sport paralimpico in Italia.",
+  medal_cta: "Scopri la storia di Atletica 2000",
+
+  // associations strip
+  assoc_strip_eyebrow: "Le realtà che presiede",
+  assoc_visit_site: "Vai al sito",
+  assoc_atletica_name: "ASD Atletica 2000",
+  assoc_atletica_role: "Atletica leggera · FIDAL · CIP",
+  assoc_codroipo_name: "Codroipo C'è",
+  assoc_codroipo_role: "Attività produttive del Medio Friuli",
 
   // misc
   loading: "Caricamento…",
   error_generic: "Qualcosa è andato storto.",
 };
+
