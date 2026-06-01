@@ -6,6 +6,7 @@ import portrait from "../assets/piergiorgio-portrait.jpg.asset.json";
 import medal from "../assets/medaglia-paralimpico.jpg.asset.json";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
+import logoPGFriuli from "../assets/logo-pg-friuli.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
