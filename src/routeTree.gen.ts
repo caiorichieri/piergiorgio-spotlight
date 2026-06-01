@@ -15,6 +15,7 @@ import { Route as GalleriaRouteImport } from './routes/galleria'
 import { Route as CodroipoCeRouteImport } from './routes/codroipo-ce'
 import { Route as BioRouteImport } from './routes/bio'
 import { Route as Atletica2000RouteImport } from './routes/atletica-2000'
+import { Route as AgendaRouteImport } from './routes/agenda'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ValoriRoute = ValoriRouteImport.update({
@@ -47,6 +48,11 @@ const Atletica2000Route = Atletica2000RouteImport.update({
   path: '/atletica-2000',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgendaRoute = AgendaRouteImport.update({
+  id: '/agenda',
+  path: '/agenda',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,6 +61,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/agenda'
     | '/atletica-2000'
     | '/bio'
     | '/codroipo-ce'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/agenda'
     | '/atletica-2000'
     | '/bio'
     | '/codroipo-ce'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/agenda'
     | '/atletica-2000'
     | '/bio'
     | '/codroipo-ce'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgendaRoute: typeof AgendaRoute
   Atletica2000Route: typeof Atletica2000Route
   BioRoute: typeof BioRoute
   CodroipoCeRoute: typeof CodroipoCeRoute
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Atletica2000RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agenda': {
+      id: '/agenda'
+      path: '/agenda'
+      fullPath: '/agenda'
+      preLoaderRoute: typeof AgendaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgendaRoute: AgendaRoute,
   Atletica2000Route: Atletica2000Route,
   BioRoute: BioRoute,
   CodroipoCeRoute: CodroipoCeRoute,
