@@ -121,10 +121,15 @@ function HomePage() {
               <img
                 src={portrait.url}
                 alt="Piergiorgio Iacuzzo"
+                width={800}
+                height={1000}
                 className="absolute inset-x-0 bottom-0 mx-auto h-full w-auto select-none object-contain"
                 style={{ filter: "drop-shadow(0 24px 30px rgba(0,0,0,0.35))" }}
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
+
             </div>
 
             <div className="absolute -bottom-2 -left-2 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur sm:block lg:-left-6">
