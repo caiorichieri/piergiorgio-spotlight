@@ -120,13 +120,13 @@ function HomePage() {
               />
             </div>
 
-            <div className="absolute -bottom-2 -left-2 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur sm:block lg:-left-10">
+            <div className="absolute -bottom-2 -left-2 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur sm:block lg:-left-6">
               <div className="font-serif text-3xl leading-none text-primary">456</div>
               <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 {t("hero_kpi1_label")}
               </div>
             </div>
-            <div className="absolute -top-2 right-0 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur md:block">
+            <div className="absolute -bottom-2 right-0 hidden rounded-md border border-primary-foreground/15 bg-background/95 p-4 text-foreground shadow-xl backdrop-blur sm:block">
               <div className="font-serif text-3xl leading-none text-primary">5.000</div>
               <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 {t("hero_kpi2_label")}
