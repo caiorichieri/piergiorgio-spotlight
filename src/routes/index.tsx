@@ -77,7 +77,11 @@ function HomePage() {
               Piergiorgio
               <br />
               <span className="italic text-accent">Iacuzzo.</span>
+              <span className="mt-3 block font-sans text-base font-normal not-italic leading-snug text-primary-foreground/80 sm:text-lg md:text-xl">
+                Presidente ASD Atletica 2000 e Codroipo C'è · Medio Friuli
+              </span>
             </h1>
+
 
             <div className="mt-6 max-w-2xl space-y-1 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground/75 sm:text-sm">
               <div>— {t("hero_role_1")}</div>
