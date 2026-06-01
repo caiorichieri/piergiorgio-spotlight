@@ -18,6 +18,7 @@ import { Route as Atletica2000RouteImport } from './routes/atletica-2000'
 import { Route as AgendaRouteImport } from './routes/agenda'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
 const ValoriRoute = ValoriRouteImport.update({
   id: '/valori',
@@ -64,6 +65,11 @@ const NewsIndexRoute = NewsIndexRouteImport.update({
   path: '/news/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/news/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
   '/valori': typeof ValoriRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
   '/valori': typeof ValoriRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
   '/valori': typeof ValoriRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/galleria'
     | '/meeting'
     | '/valori'
+    | '/news/$slug'
     | '/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/galleria'
     | '/meeting'
     | '/valori'
+    | '/news/$slug'
     | '/news'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/galleria'
     | '/meeting'
     | '/valori'
+    | '/news/$slug'
     | '/news/'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   GalleriaRoute: typeof GalleriaRoute
   MeetingRoute: typeof MeetingRoute
   ValoriRoute: typeof ValoriRoute
+  NewsSlugRoute: typeof NewsSlugRoute
   NewsIndexRoute: typeof NewsIndexRoute
 }
 
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news/$slug': {
+      id: '/news/$slug'
+      path: '/news/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleriaRoute: GalleriaRoute,
   MeetingRoute: MeetingRoute,
   ValoriRoute: ValoriRoute,
+  NewsSlugRoute: NewsSlugRoute,
   NewsIndexRoute: NewsIndexRoute,
 }
 export const routeTree = rootRouteImport
