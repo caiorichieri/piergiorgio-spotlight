@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ValoriRouteImport } from './routes/valori'
 import { Route as MeetingRouteImport } from './routes/meeting'
 import { Route as CodroipoCeRouteImport } from './routes/codroipo-ce'
 import { Route as BioRouteImport } from './routes/bio'
 import { Route as Atletica2000RouteImport } from './routes/atletica-2000'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ValoriRoute = ValoriRouteImport.update({
+  id: '/valori',
+  path: '/valori',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MeetingRoute = MeetingRouteImport.update({
   id: '/meeting',
   path: '/meeting',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
   '/meeting': typeof MeetingRoute
+  '/valori': typeof ValoriRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
   '/meeting': typeof MeetingRoute
+  '/valori': typeof ValoriRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,27 @@ export interface FileRoutesById {
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
   '/meeting': typeof MeetingRoute
+  '/valori': typeof ValoriRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atletica-2000' | '/bio' | '/codroipo-ce' | '/meeting'
+  fullPaths:
+    | '/'
+    | '/atletica-2000'
+    | '/bio'
+    | '/codroipo-ce'
+    | '/meeting'
+    | '/valori'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atletica-2000' | '/bio' | '/codroipo-ce' | '/meeting'
-  id: '__root__' | '/' | '/atletica-2000' | '/bio' | '/codroipo-ce' | '/meeting'
+  to: '/' | '/atletica-2000' | '/bio' | '/codroipo-ce' | '/meeting' | '/valori'
+  id:
+    | '__root__'
+    | '/'
+    | '/atletica-2000'
+    | '/bio'
+    | '/codroipo-ce'
+    | '/meeting'
+    | '/valori'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,10 +99,18 @@ export interface RootRouteChildren {
   BioRoute: typeof BioRoute
   CodroipoCeRoute: typeof CodroipoCeRoute
   MeetingRoute: typeof MeetingRoute
+  ValoriRoute: typeof ValoriRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/valori': {
+      id: '/valori'
+      path: '/valori'
+      fullPath: '/valori'
+      preLoaderRoute: typeof ValoriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/meeting': {
       id: '/meeting'
       path: '/meeting'
@@ -125,6 +155,7 @@ const rootRouteChildren: RootRouteChildren = {
   BioRoute: BioRoute,
   CodroipoCeRoute: CodroipoCeRoute,
   MeetingRoute: MeetingRoute,
+  ValoriRoute: ValoriRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
