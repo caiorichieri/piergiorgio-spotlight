@@ -9,38 +9,228 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ValoriRouteImport } from './routes/valori'
+import { Route as MeetingRouteImport } from './routes/meeting'
+import { Route as GalleriaRouteImport } from './routes/galleria'
+import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as CodroipoCeRouteImport } from './routes/codroipo-ce'
+import { Route as BioRouteImport } from './routes/bio'
+import { Route as Atletica2000RouteImport } from './routes/atletica-2000'
+import { Route as AgendaRouteImport } from './routes/agenda'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
+const ValoriRoute = ValoriRouteImport.update({
+  id: '/valori',
+  path: '/valori',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeetingRoute = MeetingRouteImport.update({
+  id: '/meeting',
+  path: '/meeting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleriaRoute = GalleriaRouteImport.update({
+  id: '/galleria',
+  path: '/galleria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CodroipoCeRoute = CodroipoCeRouteImport.update({
+  id: '/codroipo-ce',
+  path: '/codroipo-ce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BioRoute = BioRouteImport.update({
+  id: '/bio',
+  path: '/bio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Atletica2000Route = Atletica2000RouteImport.update({
+  id: '/atletica-2000',
+  path: '/atletica-2000',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgendaRoute = AgendaRouteImport.update({
+  id: '/agenda',
+  path: '/agenda',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/news/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/atletica-2000': typeof Atletica2000Route
+  '/bio': typeof BioRoute
+  '/codroipo-ce': typeof CodroipoCeRoute
+  '/contatti': typeof ContattiRoute
+  '/galleria': typeof GalleriaRoute
+  '/meeting': typeof MeetingRoute
+  '/valori': typeof ValoriRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/atletica-2000': typeof Atletica2000Route
+  '/bio': typeof BioRoute
+  '/codroipo-ce': typeof CodroipoCeRoute
+  '/contatti': typeof ContattiRoute
+  '/galleria': typeof GalleriaRoute
+  '/meeting': typeof MeetingRoute
+  '/valori': typeof ValoriRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/news': typeof NewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/atletica-2000': typeof Atletica2000Route
+  '/bio': typeof BioRoute
+  '/codroipo-ce': typeof CodroipoCeRoute
+  '/contatti': typeof ContattiRoute
+  '/galleria': typeof GalleriaRoute
+  '/meeting': typeof MeetingRoute
+  '/valori': typeof ValoriRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agenda'
+    | '/atletica-2000'
+    | '/bio'
+    | '/codroipo-ce'
+    | '/contatti'
+    | '/galleria'
+    | '/meeting'
+    | '/valori'
+    | '/news/$slug'
+    | '/news/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agenda'
+    | '/atletica-2000'
+    | '/bio'
+    | '/codroipo-ce'
+    | '/contatti'
+    | '/galleria'
+    | '/meeting'
+    | '/valori'
+    | '/news/$slug'
+    | '/news'
+  id:
+    | '__root__'
+    | '/'
+    | '/agenda'
+    | '/atletica-2000'
+    | '/bio'
+    | '/codroipo-ce'
+    | '/contatti'
+    | '/galleria'
+    | '/meeting'
+    | '/valori'
+    | '/news/$slug'
+    | '/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgendaRoute: typeof AgendaRoute
+  Atletica2000Route: typeof Atletica2000Route
+  BioRoute: typeof BioRoute
+  CodroipoCeRoute: typeof CodroipoCeRoute
+  ContattiRoute: typeof ContattiRoute
+  GalleriaRoute: typeof GalleriaRoute
+  MeetingRoute: typeof MeetingRoute
+  ValoriRoute: typeof ValoriRoute
+  NewsSlugRoute: typeof NewsSlugRoute
+  NewsIndexRoute: typeof NewsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/valori': {
+      id: '/valori'
+      path: '/valori'
+      fullPath: '/valori'
+      preLoaderRoute: typeof ValoriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meeting': {
+      id: '/meeting'
+      path: '/meeting'
+      fullPath: '/meeting'
+      preLoaderRoute: typeof MeetingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galleria': {
+      id: '/galleria'
+      path: '/galleria'
+      fullPath: '/galleria'
+      preLoaderRoute: typeof GalleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/codroipo-ce': {
+      id: '/codroipo-ce'
+      path: '/codroipo-ce'
+      fullPath: '/codroipo-ce'
+      preLoaderRoute: typeof CodroipoCeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bio': {
+      id: '/bio'
+      path: '/bio'
+      fullPath: '/bio'
+      preLoaderRoute: typeof BioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atletica-2000': {
+      id: '/atletica-2000'
+      path: '/atletica-2000'
+      fullPath: '/atletica-2000'
+      preLoaderRoute: typeof Atletica2000RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agenda': {
+      id: '/agenda'
+      path: '/agenda'
+      fullPath: '/agenda'
+      preLoaderRoute: typeof AgendaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +238,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news/': {
+      id: '/news/'
+      path: '/news'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/$slug': {
+      id: '/news/$slug'
+      path: '/news/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgendaRoute: AgendaRoute,
+  Atletica2000Route: Atletica2000Route,
+  BioRoute: BioRoute,
+  CodroipoCeRoute: CodroipoCeRoute,
+  ContattiRoute: ContattiRoute,
+  GalleriaRoute: GalleriaRoute,
+  MeetingRoute: MeetingRoute,
+  ValoriRoute: ValoriRoute,
+  NewsSlugRoute: NewsSlugRoute,
+  NewsIndexRoute: NewsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
