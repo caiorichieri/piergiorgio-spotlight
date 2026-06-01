@@ -15,17 +15,47 @@ export const Route = createFileRoute("/news/$slug")({
     if (!r.news) throw notFound();
     return r;
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: (loaderData?.news?.title_it ?? "News") + " — Piergiorgio Iacuzzo" },
-      { name: "description", content: loaderData?.news?.excerpt_it ?? "" },
-      { property: "og:title", content: loaderData?.news?.title_it ?? "News" },
-      { property: "og:description", content: loaderData?.news?.excerpt_it ?? "" },
-      ...(loaderData?.news?.cover_url
-        ? [{ property: "og:image", content: loaderData.news.cover_url }]
-        : []),
-    ],
-  }),
+  head: ({ loaderData, params }) => {
+    const n = loaderData?.news;
+    const title = n?.title_it ?? "News";
+    const desc =
+      (n?.excerpt_it && n.excerpt_it.trim().length > 0
+        ? n.excerpt_it
+        : n?.title_it
+          ? `${n.title_it} — News dal Medio Friuli.`
+          : "Aggiornamenti, comunicati e racconti dal territorio del Medio Friuli.");
+    const url = `https://piergiorgioiacuzzo.it/news/${params.slug}`;
+    return {
+      meta: [
+        { title: `${title} — Piergiorgio Iacuzzo` },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: url },
+        ...(n?.cover_url ? [{ property: "og:image", content: n.cover_url }] : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: n
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Article",
+                headline: n.title_it,
+                description: desc,
+                datePublished: n.published_at,
+                ...(n.cover_url ? { image: n.cover_url } : {}),
+                author: { "@type": "Person", name: "Piergiorgio Iacuzzo" },
+                mainEntityOfPage: url,
+              }),
+            },
+          ]
+        : [],
+    };
+  },
+
   component: NewsDetail,
   notFoundComponent: () => (
     <div className="mx-auto max-w-2xl px-4 py-24 text-center">
