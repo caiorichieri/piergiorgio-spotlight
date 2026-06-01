@@ -160,4 +160,4 @@ export const it = {
   // misc
   loading: "Caricamento…",
   error_generic: "Qualcosa è andato storto.",
-} as const;
+};
