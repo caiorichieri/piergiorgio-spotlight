@@ -108,20 +108,13 @@ function HomePage() {
             <div className="relative aspect-[4/5] w-full">
               <div
                 aria-hidden
-                className="absolute inset-x-4 bottom-0 top-12 rounded-full"
+                className="absolute inset-x-6 bottom-4 top-20 rounded-full"
                 style={{ background: "var(--brand-yellow)" }}
               />
-              <div
-                aria-hidden
-                className="absolute inset-x-4 bottom-0 top-12 rounded-full border border-primary-foreground/15"
-              />
-              <div className="pointer-events-none absolute -left-2 top-20 hidden origin-top-left -rotate-90 font-mono text-[10px] uppercase tracking-[0.32em] text-primary-foreground/55 md:block">
-                Presidente · Medio Friuli · 2005—
-              </div>
               <img
                 src={portrait.url}
                 alt="Piergiorgio Iacuzzo"
-                className="absolute inset-x-0 bottom-0 mx-auto h-[110%] w-auto select-none object-contain"
+                className="absolute inset-x-0 bottom-0 mx-auto h-full w-auto select-none object-contain"
                 style={{ filter: "drop-shadow(0 24px 30px rgba(0,0,0,0.35))" }}
                 loading="eager"
               />
