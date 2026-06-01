@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ValoriRouteImport } from './routes/valori'
 import { Route as MeetingRouteImport } from './routes/meeting'
+import { Route as GalleriaRouteImport } from './routes/galleria'
 import { Route as CodroipoCeRouteImport } from './routes/codroipo-ce'
 import { Route as BioRouteImport } from './routes/bio'
 import { Route as Atletica2000RouteImport } from './routes/atletica-2000'
@@ -24,6 +25,11 @@ const ValoriRoute = ValoriRouteImport.update({
 const MeetingRoute = MeetingRouteImport.update({
   id: '/meeting',
   path: '/meeting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleriaRoute = GalleriaRouteImport.update({
+  id: '/galleria',
+  path: '/galleria',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CodroipoCeRoute = CodroipoCeRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
+  '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
   '/valori': typeof ValoriRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
+  '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
   '/valori': typeof ValoriRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
+  '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
   '/valori': typeof ValoriRoute
 }
@@ -79,16 +88,25 @@ export interface FileRouteTypes {
     | '/atletica-2000'
     | '/bio'
     | '/codroipo-ce'
+    | '/galleria'
     | '/meeting'
     | '/valori'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atletica-2000' | '/bio' | '/codroipo-ce' | '/meeting' | '/valori'
+  to:
+    | '/'
+    | '/atletica-2000'
+    | '/bio'
+    | '/codroipo-ce'
+    | '/galleria'
+    | '/meeting'
+    | '/valori'
   id:
     | '__root__'
     | '/'
     | '/atletica-2000'
     | '/bio'
     | '/codroipo-ce'
+    | '/galleria'
     | '/meeting'
     | '/valori'
   fileRoutesById: FileRoutesById
@@ -98,6 +116,7 @@ export interface RootRouteChildren {
   Atletica2000Route: typeof Atletica2000Route
   BioRoute: typeof BioRoute
   CodroipoCeRoute: typeof CodroipoCeRoute
+  GalleriaRoute: typeof GalleriaRoute
   MeetingRoute: typeof MeetingRoute
   ValoriRoute: typeof ValoriRoute
 }
@@ -116,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/meeting'
       fullPath: '/meeting'
       preLoaderRoute: typeof MeetingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galleria': {
+      id: '/galleria'
+      path: '/galleria'
+      fullPath: '/galleria'
+      preLoaderRoute: typeof GalleriaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/codroipo-ce': {
@@ -154,9 +180,20 @@ const rootRouteChildren: RootRouteChildren = {
   Atletica2000Route: Atletica2000Route,
   BioRoute: BioRoute,
   CodroipoCeRoute: CodroipoCeRoute,
+  GalleriaRoute: GalleriaRoute,
   MeetingRoute: MeetingRoute,
   ValoriRoute: ValoriRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
