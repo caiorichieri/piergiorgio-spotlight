@@ -1,0 +1,163 @@
+export const it = {
+  // nav
+  nav_home: "Home",
+  nav_bio: "Biografia",
+  nav_atletica: "Atletica 2000",
+  nav_meeting: "Meeting",
+  nav_codroipo: "Codroipo C'è",
+  nav_valori: "Valori",
+  nav_galleria: "Galleria",
+  nav_agenda: "Agenda",
+  nav_news: "News",
+  nav_contatti: "Contatti",
+
+  // hero
+  hero_tag: "Profilo · Medio Friuli · FVG · Italia",
+  hero_role_1: "Presidente · ASD Atletica 2000",
+  hero_role_2: "Presidente · Codroipo C'è",
+  hero_role_3: "Imprenditore · Codroipo (UD)",
+  hero_desc:
+    "Vent'anni al servizio dello sport e della comunità del Medio Friuli. Un imprenditore che ha scelto di investire il suo tempo e la sua energia nelle persone, negli atleti e nel territorio in cui è nato e cresciuto.",
+  hero_kpi1_label: "Atleti tesserati FIDAL",
+  hero_kpi2_label: "Persone coinvolte ogni anno",
+  hero_kpi3_label: "Comuni raggiunti nel FVG",
+  hero_kpi4_label: "Meeting nazionale di atletica",
+  hero_scroll: "Scorri",
+
+  // sections
+  section_bio_tag: "Biografia",
+  section_bio_title_1: "Un uomo",
+  section_bio_title_2: "di territorio.",
+  bio_p1:
+    "Piergiorgio Iacuzzo è nato e cresciuto a Codroipo, nel cuore del Medio Friuli. Imprenditore di professione, ha dedicato gran parte della sua vita extralavorativa al servizio delle comunità di cui fa parte — portando alla guida di due realtà associative un approccio concreto, orientato ai risultati e profondamente radicato nei valori del territorio.",
+  bio_p2:
+    "Non è il tipo da palcoscenico: lo si trova in pista con gli atleti, presente agli eventi, disponibile al confronto. Il suo stile è quello dell'imprenditore applicato al volontariato — pragmatico, capace di costruire squadra attorno a una visione condivisa. Nel gennaio 2026 ha festeggiato i suoi 60 anni, circondato dagli atleti e dai collaboratori delle associazioni che ha contribuito a costruire.",
+  bio_p3:
+    "La sua storia dimostra che il Medio Friuli ha le persone e le risorse per fare cose grandi — basta volerlo davvero.",
+
+  atletica_tag: "ASD Atletica 2000",
+  atletica_title_1: "Da club locale",
+  atletica_title_2: "a eccellenza",
+  atletica_title_3: "nazionale.",
+  atletica_stat1: "Atleti tesserati",
+  atletica_stat1_sub: "276 uomini · 180 donne",
+  atletica_stat2: "Persone coinvolte",
+  atletica_stat2_sub: "ogni anno",
+  atletica_stat3: "Comuni raggiunti",
+  atletica_stat3_sub: "in tutto il FVG",
+  atletica_stat4: "Partner",
+  atletica_stat4_sub: "tra enti e associazioni",
+  atletica_p1:
+    "Quando Iacuzzo ha assunto la presidenza, la ASD Atletica 2000 contava poche decine di atleti tesserati. Oggi ne conta 456, e il suo impatto si estende ben oltre i confini del club: ogni anno coinvolge circa 5.000 persone provenienti da 40 Comuni del Friuli Venezia Giulia, in un modello che integra sport agonistico, attività giovanile, atletica master e inclusione paralimpica.",
+  atletica_p2:
+    "L'associazione gestisce la pista di atletica del Polisportivo comunale di Codroipo e collabora con scuole, enti e istituzioni di tutto il comprensorio, attraverso un network di oltre 25 partner tra associazioni, gruppi e realtà locali.",
+  atletica_p3:
+    "Sotto la sua guida, la ASD Atletica 2000 è diventata punto di riferimento regionale per gli atleti con disabilità: la pista di Codroipo è aperta e attrezzata per tutte le tipologie di pratica paralimpica. Nella sola stagione 2019 sono stati registrati 10 record paralimpici.",
+  atletica_p4:
+    "Sul fronte delle infrastrutture, Iacuzzo ha ottenuto nel corso degli anni finanziamenti da bandi regionali per interventi strutturali, culminati nel 2025 con la concessione di 700.000 euro per la ristrutturazione e l'ampliamento della pista — uno degli investimenti più significativi della storia del club.",
+
+  timeline_tag: "Il percorso",
+  timeline_title: "Una crescita costruita anno per anno.",
+
+  meeting_tag: "Atletica 2000 Meeting",
+  meeting_title: "Un meeting internazionale nel cuore del Friuli.",
+  meeting_card1_title: "Circuito EAP Internazionale",
+  meeting_card1_text:
+    "Membro del circuito EAP — Events for Athletics Promotion, presente in tutta Europa. Porta a Codroipo atleti da tutto il continente.",
+  meeting_card2_title: "Top 5 in Italia",
+  meeting_card2_text:
+    "Nel 2024 il meeting si è classificato quinto in Italia con 74.749 punti, entrando nel World Athletics Continental Tour — serie Challenger.",
+  meeting_card3_title: "Quattro record nel 2025",
+  meeting_card3_text:
+    "La 19ª edizione ha visto cadere quattro record. Per il 2026 si prepara il ventennale del meeting.",
+
+  codroipo_tag: "Codroipo C'è",
+  codroipo_title: "Far crescere il valore del territorio.",
+  codroipo_p1:
+    "Dal 2024 Iacuzzo è presidente di Codroipo C'è, l'associazione delle attività produttive del Medio Friuli. Una scelta naturale per chi ha sempre creduto che sport, comunità e impresa siano parte dello stesso disegno: la valorizzazione del territorio.",
+  codroipo_p2:
+    "Codroipo C'è riunisce commercianti, artigiani e imprese del comprensorio attorno a un'idea concreta: animare il centro con eventi e manifestazioni, sostenere chi lavora ogni giorno per la comunità e portare visibilità al Medio Friuli.",
+  codroipo_quote:
+    "\"Quando ho deciso di assumere la presidenza, il mio obiettivo era far crescere il valore di Codroipo e del Medio Friuli attraverso eventi e manifestazioni. Da codroipese sento mia questa missione.\"",
+  codroipo_quote_attr: "Piergiorgio Iacuzzo · Presidente Codroipo C'è",
+
+  valori_tag: "Valori",
+  valori_title: "Quattro principi che guidano ogni scelta.",
+  valore1_title: "Territorio",
+  valore1_text:
+    "Investire dove si è nati e cresciuti. Le risorse del Medio Friuli restano nel Medio Friuli — in forma di sport, eventi, lavoro e comunità.",
+  valore2_title: "Concretezza",
+  valore2_text:
+    "Pragmatismo da imprenditore applicato al volontariato. Obiettivi misurabili, squadre costruite per durare, bilanci in ordine.",
+  valore3_title: "Inclusione",
+  valore3_text:
+    "La pista di Codroipo è aperta a tutti, da chi corre per la prima volta agli atleti paralimpici. Lo sport come strumento di accesso reale.",
+  valore4_title: "Squadra",
+  valore4_text:
+    "Niente si costruisce da soli. Quindici consiglieri, oltre 25 partner, centinaia di volontari e migliaia di atleti — la vera infrastruttura.",
+
+  // pages
+  page_bio_title: "Biografia — Piergiorgio Iacuzzo",
+  page_bio_desc:
+    "La storia di Piergiorgio Iacuzzo, imprenditore e presidente delle realtà associative del Medio Friuli.",
+  page_atletica_title: "ASD Atletica 2000 — la presidenza di Iacuzzo",
+  page_atletica_desc:
+    "Vent'anni alla guida della ASD Atletica 2000: 456 atleti, 5.000 persone coinvolte, eccellenza paralimpica.",
+  page_meeting_title: "Atletica 2000 Meeting — Codroipo",
+  page_meeting_desc:
+    "Il meeting internazionale di atletica leggera che porta a Codroipo atleti da tutta Europa.",
+  page_codroipo_title: "Codroipo C'è — le attività produttive del Medio Friuli",
+  page_codroipo_desc:
+    "L'associazione che riunisce commercianti, artigiani e imprese del Medio Friuli per valorizzare il territorio.",
+  page_valori_title: "Valori — Piergiorgio Iacuzzo",
+  page_valori_desc: "I quattro principi che guidano l'azione di Piergiorgio Iacuzzo.",
+  page_galleria_title: "Galleria — Atletica 2000 e Codroipo C'è",
+  page_galleria_desc: "Immagini dalla pista, dal meeting e dagli eventi del Medio Friuli.",
+  page_agenda_title: "Agenda eventi — Codroipo e Medio Friuli",
+  page_agenda_desc: "Tutti i prossimi appuntamenti di Atletica 2000 e Codroipo C'è.",
+  page_news_title: "News — Atletica 2000 e Codroipo C'è",
+  page_news_desc: "Aggiornamenti, comunicati e racconti dal territorio.",
+  page_contatti_title: "Contatti — Piergiorgio Iacuzzo",
+  page_contatti_desc: "Scrivi a Piergiorgio Iacuzzo, Atletica 2000 e Codroipo C'è.",
+
+  // gallery / agenda / news
+  galleria_tag: "Galleria",
+  galleria_title: "Le immagini del territorio.",
+  agenda_tag: "Agenda",
+  agenda_title: "I prossimi appuntamenti.",
+  agenda_no_url: "Maggiori dettagli a breve.",
+  agenda_view: "Scopri di più",
+  agenda_empty: "Nessun evento in programma al momento.",
+  news_tag: "News",
+  news_title: "Aggiornamenti dal territorio.",
+  news_read: "Leggi",
+  news_back: "← Tutte le news",
+  news_empty: "Nessuna news pubblicata al momento.",
+
+  // contact
+  contact_tag: "Contatti",
+  contact_title: "Scrivici.",
+  contact_intro:
+    "Per informazioni su ASD Atletica 2000, sul meeting o su Codroipo C'è, compila il modulo qui sotto.",
+  contact_name: "Nome e cognome",
+  contact_email: "Email",
+  contact_subject: "Oggetto",
+  contact_message: "Messaggio",
+  contact_send: "Invia messaggio",
+  contact_sending: "Invio in corso…",
+  contact_ok: "Messaggio inviato. Ti risponderemo al più presto.",
+  contact_err: "Si è verificato un errore. Riprova più tardi.",
+  contact_address_label: "Sede",
+  contact_address: "ASD Atletica 2000 — Polisportivo comunale, Codroipo (UD), Italia",
+
+  // footer
+  footer_tagline:
+    "Vent'anni al servizio dello sport e della comunità del Medio Friuli.",
+  footer_links_heading: "Navigazione",
+  footer_assoc_heading: "Associazioni",
+  footer_rights: "Tutti i diritti riservati.",
+
+  // misc
+  loading: "Caricamento…",
+  error_generic: "Qualcosa è andato storto.",
+} as const;
