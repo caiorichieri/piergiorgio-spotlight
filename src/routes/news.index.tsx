@@ -11,7 +11,7 @@ const newsQO = queryOptions({
   queryFn: () => getNewsList(),
 });
 
-export const Route = createFileRoute("/news")({
+export const Route = createFileRoute("/news/")({
   head: () => ({
     meta: [
       { title: "News — Atletica 2000 e Codroipo C'è" },
