@@ -149,8 +149,26 @@ export const en: typeof it = {
   footer_tagline: "Twenty years at the service of sport and the community of Medio Friuli.",
   footer_links_heading: "Navigation",
   footer_assoc_heading: "Associations",
+  footer_visit: "Visit website",
   footer_rights: "All rights reserved.",
+  footer_credit_intro: "Site designed and built by",
+  footer_credit_role: "Digital communication · Friuli Venezia Giulia",
+
+  medal_tag: "Official recognition",
+  medal_title: "Bronze Star of Sporting Merit",
+  medal_authority: "Italian Paralympic Committee",
+  medal_text:
+    "For his pioneering work on paralympic inclusion within ASD Atletica 2000, Piergiorgio Iacuzzo was awarded the Bronze Star of Sporting Merit by the CIP — the highest official recognition for those who have contributed to the growth of paralympic sport in Italy.",
+  medal_cta: "Discover the Atletica 2000 story",
+
+  assoc_strip_eyebrow: "The associations he leads",
+  assoc_visit_site: "Go to site",
+  assoc_atletica_name: "ASD Atletica 2000",
+  assoc_atletica_role: "Track & field · FIDAL · CIP",
+  assoc_codroipo_name: "Codroipo C'è",
+  assoc_codroipo_role: "Productive activities of Medio Friuli",
 
   loading: "Loading…",
   error_generic: "Something went wrong.",
 };
+
