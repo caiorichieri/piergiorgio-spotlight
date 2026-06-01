@@ -19,8 +19,12 @@ export const Route = createFileRoute("/galleria")({
         content: "Immagini dalla pista, dal meeting e dagli eventi del Medio Friuli.",
       },
       { property: "og:title", content: "Galleria — Piergiorgio Iacuzzo" },
+      { property: "og:description", content: "Immagini dalla pista, dal meeting e dagli eventi del Medio Friuli." },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/galleria" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/galleria" }],
   }),
+
   loader: ({ context }) => context.queryClient.ensureQueryData(photosQO),
   component: GalleryPage,
   errorComponent: ({ error }) => (

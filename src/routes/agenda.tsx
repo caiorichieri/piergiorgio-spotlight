@@ -20,8 +20,12 @@ export const Route = createFileRoute("/agenda")({
         content: "Tutti i prossimi appuntamenti di Atletica 2000 e Codroipo C'è.",
       },
       { property: "og:title", content: "Agenda eventi — Medio Friuli" },
+      { property: "og:description", content: "Tutti i prossimi appuntamenti di Atletica 2000 e Codroipo C'è." },
+      { property: "og:url", content: "https://piergiorgioiacuzzo.it/agenda" },
     ],
+    links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/agenda" }],
   }),
+
   loader: ({ context }) => context.queryClient.ensureQueryData(eventsQO),
   component: AgendaPage,
   errorComponent: ({ error }) => (
