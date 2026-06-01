@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MeetingRouteImport } from './routes/meeting'
+import { Route as CodroipoCeRouteImport } from './routes/codroipo-ce'
 import { Route as BioRouteImport } from './routes/bio'
 import { Route as Atletica2000RouteImport } from './routes/atletica-2000'
 import { Route as IndexRouteImport } from './routes/index'
@@ -17,6 +18,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const MeetingRoute = MeetingRouteImport.update({
   id: '/meeting',
   path: '/meeting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CodroipoCeRoute = CodroipoCeRouteImport.update({
+  id: '/codroipo-ce',
+  path: '/codroipo-ce',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BioRoute = BioRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
+  '/codroipo-ce': typeof CodroipoCeRoute
   '/meeting': typeof MeetingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
+  '/codroipo-ce': typeof CodroipoCeRoute
   '/meeting': typeof MeetingRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/atletica-2000': typeof Atletica2000Route
   '/bio': typeof BioRoute
+  '/codroipo-ce': typeof CodroipoCeRoute
   '/meeting': typeof MeetingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atletica-2000' | '/bio' | '/meeting'
+  fullPaths: '/' | '/atletica-2000' | '/bio' | '/codroipo-ce' | '/meeting'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atletica-2000' | '/bio' | '/meeting'
-  id: '__root__' | '/' | '/atletica-2000' | '/bio' | '/meeting'
+  to: '/' | '/atletica-2000' | '/bio' | '/codroipo-ce' | '/meeting'
+  id: '__root__' | '/' | '/atletica-2000' | '/bio' | '/codroipo-ce' | '/meeting'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   Atletica2000Route: typeof Atletica2000Route
   BioRoute: typeof BioRoute
+  CodroipoCeRoute: typeof CodroipoCeRoute
   MeetingRoute: typeof MeetingRoute
 }
 
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/meeting'
       fullPath: '/meeting'
       preLoaderRoute: typeof MeetingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/codroipo-ce': {
+      id: '/codroipo-ce'
+      path: '/codroipo-ce'
+      fullPath: '/codroipo-ce'
+      preLoaderRoute: typeof CodroipoCeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bio': {
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   Atletica2000Route: Atletica2000Route,
   BioRoute: BioRoute,
+  CodroipoCeRoute: CodroipoCeRoute,
   MeetingRoute: MeetingRoute,
 }
 export const routeTree = rootRouteImport
