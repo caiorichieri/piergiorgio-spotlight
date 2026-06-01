@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ValoriRouteImport } from './routes/valori'
+import { Route as NewsRouteImport } from './routes/news'
 import { Route as MeetingRouteImport } from './routes/meeting'
 import { Route as GalleriaRouteImport } from './routes/galleria'
 import { Route as CodroipoCeRouteImport } from './routes/codroipo-ce'
@@ -21,6 +22,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ValoriRoute = ValoriRouteImport.update({
   id: '/valori',
   path: '/valori',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MeetingRoute = MeetingRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/news': typeof NewsRoute
   '/valori': typeof ValoriRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/news': typeof NewsRoute
   '/valori': typeof ValoriRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/news': typeof NewsRoute
   '/valori': typeof ValoriRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/codroipo-ce'
     | '/galleria'
     | '/meeting'
+    | '/news'
     | '/valori'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/codroipo-ce'
     | '/galleria'
     | '/meeting'
+    | '/news'
     | '/valori'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/codroipo-ce'
     | '/galleria'
     | '/meeting'
+    | '/news'
     | '/valori'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   CodroipoCeRoute: typeof CodroipoCeRoute
   GalleriaRoute: typeof GalleriaRoute
   MeetingRoute: typeof MeetingRoute
+  NewsRoute: typeof NewsRoute
   ValoriRoute: typeof ValoriRoute
 }
 
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/valori'
       fullPath: '/valori'
       preLoaderRoute: typeof ValoriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/meeting': {
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   CodroipoCeRoute: CodroipoCeRoute,
   GalleriaRoute: GalleriaRoute,
   MeetingRoute: MeetingRoute,
+  NewsRoute: NewsRoute,
   ValoriRoute: ValoriRoute,
 }
 export const routeTree = rootRouteImport
