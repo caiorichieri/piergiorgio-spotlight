@@ -14,7 +14,150 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      events: {
+        Row: {
+          cover_url: string | null
+          created_at: string
+          description_en: string
+          description_it: string
+          ends_at: string | null
+          id: string
+          location: string | null
+          starts_at: string
+          title_en: string
+          title_it: string
+          url: string | null
+        }
+        Insert: {
+          cover_url?: string | null
+          created_at?: string
+          description_en?: string
+          description_it?: string
+          ends_at?: string | null
+          id?: string
+          location?: string | null
+          starts_at: string
+          title_en: string
+          title_it: string
+          url?: string | null
+        }
+        Update: {
+          cover_url?: string | null
+          created_at?: string
+          description_en?: string
+          description_it?: string
+          ends_at?: string | null
+          id?: string
+          location?: string | null
+          starts_at?: string
+          title_en?: string
+          title_it?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
+      gallery_photos: {
+        Row: {
+          caption_en: string
+          caption_it: string
+          created_at: string
+          id: string
+          sort_order: number
+          taken_at: string | null
+          url: string
+        }
+        Insert: {
+          caption_en?: string
+          caption_it?: string
+          created_at?: string
+          id?: string
+          sort_order?: number
+          taken_at?: string | null
+          url: string
+        }
+        Update: {
+          caption_en?: string
+          caption_it?: string
+          created_at?: string
+          id?: string
+          sort_order?: number
+          taken_at?: string | null
+          url?: string
+        }
+        Relationships: []
+      }
+      news: {
+        Row: {
+          body_en: string
+          body_it: string
+          cover_url: string | null
+          created_at: string
+          excerpt_en: string
+          excerpt_it: string
+          id: string
+          published_at: string
+          slug: string
+          status: string
+          title_en: string
+          title_it: string
+        }
+        Insert: {
+          body_en?: string
+          body_it?: string
+          cover_url?: string | null
+          created_at?: string
+          excerpt_en?: string
+          excerpt_it?: string
+          id?: string
+          published_at?: string
+          slug: string
+          status?: string
+          title_en: string
+          title_it: string
+        }
+        Update: {
+          body_en?: string
+          body_it?: string
+          cover_url?: string | null
+          created_at?: string
+          excerpt_en?: string
+          excerpt_it?: string
+          id?: string
+          published_at?: string
+          slug?: string
+          status?: string
+          title_en?: string
+          title_it?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
