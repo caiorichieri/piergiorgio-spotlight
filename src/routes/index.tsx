@@ -50,6 +50,13 @@ function HomePage() {
             className="absolute -right-32 -top-32 h-96 w-96 rounded-full opacity-25 blur-3xl"
             style={{ background: "var(--brand-gold)" }}
           />
+          <img
+            src={logoPGFriuli.url}
+            alt="PG Friuli — Orgoglio e Tradizione"
+            className="pointer-events-none absolute -right-16 -top-10 h-72 w-72 select-none opacity-90 drop-shadow-2xl md:h-96 md:w-96 lg:-right-20 lg:-top-16"
+            style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.35))" }}
+            loading="eager"
+          />
           <div
             className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full opacity-15 blur-3xl"
             style={{ background: "var(--brand-yellow)" }}
