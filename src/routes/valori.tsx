@@ -36,12 +36,12 @@ function ValoriPage() {
         <div className="grid gap-5 md:grid-cols-2">
           {items.map((v, i) => (
             <Reveal key={i} delay={i * 80}>
-              <div className="h-full rounded-md border border-border bg-card p-8">
-                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                  Principio 0{i + 1}
+              <div className="group h-full overflow-hidden rounded-md border border-border bg-card transition-all hover:-translate-y-1 hover:border-accent hover:shadow-lg">
+                <div className="h-1 w-full bg-accent transition-all group-hover:bg-primary" />
+                <div className="p-8">
+                  <div className="font-serif text-3xl text-foreground">{v.t}</div>
+                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">{v.d}</p>
                 </div>
-                <div className="mt-3 font-serif text-3xl text-foreground">{v.t}</div>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{v.d}</p>
               </div>
             </Reveal>
           ))}
