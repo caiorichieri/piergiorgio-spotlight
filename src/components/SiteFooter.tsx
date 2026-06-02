@@ -3,7 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { useT } from "../i18n";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
-import logoFriulion from "../assets/friulion-logo.png.asset.json";
+import logoFriulion from "../assets/friulion-logo-transparent.png.asset.json";
 
 export function SiteFooter() {
   const { t } = useT();
