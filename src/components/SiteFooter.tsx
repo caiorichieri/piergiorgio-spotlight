@@ -114,7 +114,9 @@ export function SiteFooter() {
               {t("footer_credit_intro")}
             </span>
             <a
-              href="#"
+              href="https://www.friulion.it"
+              target="_blank"
+              rel="noreferrer noopener"
               className="inline-flex items-center transition-transform hover:-translate-y-0.5"
               aria-label="FriuliOn"
             >
