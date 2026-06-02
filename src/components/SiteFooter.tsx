@@ -3,7 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { useT } from "../i18n";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
-import logoFriulion from "../assets/logo-friulion.png.asset.json";
+import logoFriulion from "../assets/friulion-logo.png.asset.json";
 
 export function SiteFooter() {
   const { t } = useT();
@@ -115,10 +115,10 @@ export function SiteFooter() {
             </span>
             <a
               href="#"
-              className="flex items-center gap-2 rounded-md bg-white px-3 py-1.5 transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center transition-transform hover:-translate-y-0.5"
               aria-label="FriuliOn"
             >
-              <img src={logoFriulion.url} alt="FriuliOn" className="h-6 w-auto" />
+              <img src={logoFriulion.url} alt="FriuliOn" className="h-8 w-auto" />
             </a>
             <span className="hidden text-[11px] text-primary-foreground/55 sm:inline">
               · {t("footer_credit_role")}
