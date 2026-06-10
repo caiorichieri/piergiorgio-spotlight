@@ -13,10 +13,14 @@ export const en: typeof it = {
   nav_contatti: "Contact",
 
   hero_tag: "Profile · Medio Friuli · FVG · Italy",
-  hero_role_1: "President · ASD Atletica 2000",
-  hero_role_2: "President · Codroipo C'è",
-  hero_role_3: "Ambassador · Republic of Movement — Fondazione Sport City ETS",
-  hero_role_4: "Entrepreneur · Codroipo (UD)",
+  hero_role_1_kind: "President",
+  hero_role_1_org: "ASD Atletica 2000",
+  hero_role_2_kind: "President",
+  hero_role_2_org: "Codroipo C'è",
+  hero_role_3_kind: "Ambassador",
+  hero_role_3_org: "Fondazione Sport City",
+  hero_role_4_kind: "Entrepreneur",
+  hero_role_4_org: "Medio Friuli",
   hero_desc:
     "Twenty years at the service of sport and the community of Medio Friuli. An entrepreneur who chose to invest his time and energy in people, athletes and the territory where he was born and raised.",
   hero_kpi1_label: "FIDAL-registered athletes",

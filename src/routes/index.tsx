@@ -80,24 +80,29 @@ function HomePage() {
               <span className="italic text-accent">Iacuzzo.</span>
             </h1>
 
-            <ul className="mt-7 max-w-2xl space-y-2 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground/80 sm:text-sm">
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 inline-block h-1.5 w-3 shrink-0 bg-accent" />
-                {t("hero_role_1")}
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 inline-block h-1.5 w-3 shrink-0 bg-accent" />
-                {t("hero_role_2")}
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 inline-block h-1.5 w-3 shrink-0 bg-accent" />
-                {t("hero_role_3")}
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 inline-block h-1.5 w-3 shrink-0 bg-accent" />
-                {t("hero_role_4")}
-              </li>
-            </ul>
+            <ol className="mt-8 max-w-2xl divide-y divide-primary-foreground/10 border-y border-primary-foreground/10">
+              {([
+                ["I", t("hero_role_1_kind"), t("hero_role_1_org")],
+                ["II", t("hero_role_2_kind"), t("hero_role_2_org")],
+                ["III", t("hero_role_3_kind"), t("hero_role_3_org")],
+                ["IV", t("hero_role_4_kind"), t("hero_role_4_org")],
+              ] as const).map(([roman, kind, org]) => (
+                <li
+                  key={roman}
+                  className="grid grid-cols-[2.5rem_minmax(0,7rem)_1fr] items-baseline gap-x-4 py-3 sm:grid-cols-[2.75rem_8rem_1fr]"
+                >
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                    {roman}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground/55">
+                    {kind}
+                  </span>
+                  <span className="font-serif text-lg leading-tight text-primary-foreground sm:text-xl">
+                    {org}
+                  </span>
+                </li>
+              ))}
+            </ol>
 
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-primary-foreground/85 md:text-lg">
