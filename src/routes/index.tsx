@@ -6,6 +6,7 @@ import portrait from "../assets/piergiorgio-cutout.png.asset.json";
 import medal from "../assets/medaglia-paralimpico.jpg.asset.json";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
+import logoSportCity from "../assets/logo-fondazione-sport-city.png.asset.json";
 import logoPGFriuli from "../assets/logo-pg-friuli-trasparente.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -152,7 +153,7 @@ function HomePage() {
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
           <SectionEyebrow>{t("assoc_strip_eyebrow")}</SectionEyebrow>
-          <div className="mt-6 grid gap-5 md:grid-cols-2">
+          <div className="mt-6 grid gap-5 md:grid-cols-3">
             {[
               {
                 href: "https://www.atletica2000.it",
@@ -167,6 +168,13 @@ function HomePage() {
                 name: t("assoc_codroipo_name"),
                 role: t("assoc_codroipo_role"),
                 domain: "codroipoce.it",
+              },
+              {
+                href: "https://www.sportcity.it",
+                logo: logoSportCity.url,
+                name: t("assoc_sportcity_name"),
+                role: t("assoc_sportcity_role"),
+                domain: "sportcity.it",
               },
             ].map((a, i) => (
               <Reveal key={a.href} delay={i * 100}>
@@ -189,6 +197,47 @@ function HomePage() {
                 </a>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AMBASSADOR — Fondazione Sport City */}
+      <section className="border-b border-border bg-secondary/40">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-4">
+            <div className="flex aspect-square w-full items-center justify-center rounded-md border border-border bg-background p-10 shadow-sm">
+              <img
+                src={logoSportCity.url}
+                alt="Fondazione Sport City ETS"
+                className="max-h-full w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          </Reveal>
+          <div className="lg:col-span-8">
+            <SectionEyebrow>
+              <Award size={12} className="mr-1.5 inline -translate-y-px text-accent" />
+              {t("ambassador_tag")}
+            </SectionEyebrow>
+            <h2 className="font-serif text-4xl leading-tight md:text-5xl">
+              {t("ambassador_title_1")}{" "}
+              <span className="italic text-accent">{t("ambassador_title_2")}</span>
+            </h2>
+            <div className="mt-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              {t("ambassador_authority")}
+            </div>
+            <Reveal as="p" className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/85">
+              {t("ambassador_text")}
+            </Reveal>
+            <a
+              href="https://www.sportcity.it"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent"
+            >
+              {t("ambassador_cta")} <ExternalLink size={14} />
+            </a>
           </div>
         </div>
       </section>

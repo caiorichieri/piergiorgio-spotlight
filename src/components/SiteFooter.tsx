@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { useT } from "../i18n";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
+import logoSportCity from "../assets/logo-fondazione-sport-city.png.asset.json";
 import logoFriulion from "../assets/friulion-logo-transparent.png.asset.json";
 
 export function SiteFooter() {
@@ -98,6 +99,23 @@ export function SiteFooter() {
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-sm font-medium">Codroipo C'è</span>
                   <span className="block truncate text-[11px] text-primary-foreground/60">codroipoce.it</span>
+                </span>
+                <ExternalLink size={14} className="text-primary-foreground/50 group-hover:text-accent" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.sportcity.it"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group flex items-center gap-3 rounded-md border border-primary-foreground/10 bg-primary-foreground/5 p-3 transition-colors hover:border-accent/60 hover:bg-primary-foreground/10"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-white p-1">
+                  <img src={logoSportCity.url} alt="Fondazione Sport City" className="h-full w-full object-contain" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm font-medium">Fondazione Sport City</span>
+                  <span className="block truncate text-[11px] text-primary-foreground/60">Ambasciatore · Delegato Friuli</span>
                 </span>
                 <ExternalLink size={14} className="text-primary-foreground/50 group-hover:text-accent" />
               </a>
