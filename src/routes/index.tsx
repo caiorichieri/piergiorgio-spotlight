@@ -81,27 +81,27 @@ function HomePage() {
             </h1>
 
             <ol className="mt-8 max-w-2xl divide-y divide-primary-foreground/10 border-y border-primary-foreground/10">
-              {[1, 2, 3, 4].map((n) => {
-                const roman = ["I", "II", "III", "IV"][n - 1];
-                const kind = t(`hero_role_${n}_kind` as const);
-                const org = t(`hero_role_${n}_org` as const);
-                return (
-                  <li
-                    key={n}
-                    className="group grid grid-cols-[2.5rem_minmax(0,7rem)_1fr] items-baseline gap-x-4 py-3 sm:grid-cols-[2.75rem_8rem_1fr]"
-                  >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                      {roman}
-                    </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground/55">
-                      {kind}
-                    </span>
-                    <span className="font-serif text-lg leading-tight text-primary-foreground sm:text-xl">
-                      {org}
-                    </span>
-                  </li>
-                );
-              })}
+              {([
+                ["I", t("hero_role_1_kind"), t("hero_role_1_org")],
+                ["II", t("hero_role_2_kind"), t("hero_role_2_org")],
+                ["III", t("hero_role_3_kind"), t("hero_role_3_org")],
+                ["IV", t("hero_role_4_kind"), t("hero_role_4_org")],
+              ] as const).map(([roman, kind, org]) => (
+                <li
+                  key={roman}
+                  className="grid grid-cols-[2.5rem_minmax(0,7rem)_1fr] items-baseline gap-x-4 py-3 sm:grid-cols-[2.75rem_8rem_1fr]"
+                >
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+                    {roman}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground/55">
+                    {kind}
+                  </span>
+                  <span className="font-serif text-lg leading-tight text-primary-foreground sm:text-xl">
+                    {org}
+                  </span>
+                </li>
+              ))}
             </ol>
 
 
