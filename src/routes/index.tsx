@@ -211,43 +211,111 @@ function HomePage() {
         </div>
       </section>
 
-      {/* AMBASSADOR — Fondazione Sport City */}
-      <section className="border-b border-border bg-secondary/40">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-4">
-            <div className="flex aspect-square w-full items-center justify-center rounded-md border border-border bg-background p-10 shadow-sm">
-              <img
-                src={logoSportCity.url}
-                alt="Fondazione Sport City ETS"
-                className="max-h-full w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
-          <div className="lg:col-span-8">
+      {/* AMBASSADOR — Fondazione Sport City (editorial dispatch) */}
+      <section className="relative overflow-hidden border-b border-border bg-secondary/40">
+        {/* oversized year mark */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-6 top-4 select-none font-serif text-[160px] leading-none tracking-tighter text-foreground/[0.04] md:text-[260px] lg:-right-10 lg:top-6"
+        >
+          2026
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-24">
+          {/* top dispatch rule */}
+          <div className="flex items-center gap-4">
             <SectionEyebrow>
               <Award size={12} className="mr-1.5 inline -translate-y-px text-accent" />
               {t("ambassador_tag")}
             </SectionEyebrow>
-            <h2 className="font-serif text-4xl leading-tight md:text-5xl">
-              {t("ambassador_title_1")}{" "}
-              <span className="italic text-accent">{t("ambassador_title_2")}</span>
-            </h2>
-            <div className="mt-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              {t("ambassador_authority")}
-            </div>
-            <Reveal as="p" className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/85">
-              {t("ambassador_text")}
+            <span className="h-px flex-1 bg-border" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+              N° 03 · Honorificenze
+            </span>
+          </div>
+
+          <div className="mt-10 grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+            {/* LEFT — seal */}
+            <Reveal className="lg:col-span-5">
+              <div className="relative">
+                <div className="relative aspect-square w-full overflow-hidden rounded-md border border-border bg-background shadow-sm">
+                  {/* corner ticks */}
+                  <span className="absolute left-3 top-3 h-3 w-3 border-l border-t border-accent" />
+                  <span className="absolute right-3 top-3 h-3 w-3 border-r border-t border-accent" />
+                  <span className="absolute bottom-3 left-3 h-3 w-3 border-b border-l border-accent" />
+                  <span className="absolute bottom-3 right-3 h-3 w-3 border-b border-r border-accent" />
+                  <div className="flex h-full w-full items-center justify-center p-12">
+                    <img
+                      src={logoSportCity.url}
+                      alt="Fondazione Sport City ETS"
+                      className="max-h-full w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
+                    <span>Sigillo · Roma</span>
+                    <span className="text-accent">✕ ✕ ✕</span>
+                  </div>
+                </div>
+                {/* signed-by caption */}
+                <div className="mt-3 flex items-baseline justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  <span>Conferita da</span>
+                  <span className="text-foreground/80">Fabio Pagliara</span>
+                </div>
+              </div>
             </Reveal>
-            <a
-              href="https://www.sportcity.it"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent"
-            >
-              {t("ambassador_cta")} <ExternalLink size={14} />
-            </a>
+
+            {/* RIGHT — letterpress dispatch */}
+            <div className="lg:col-span-7">
+              <h2 className="font-serif text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
+                {t("ambassador_title_1")}{" "}
+                <span className="italic text-accent">{t("ambassador_title_2")}</span>
+              </h2>
+
+              <div className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                {t("ambassador_authority")}
+              </div>
+
+              <Reveal
+                as="p"
+                className="mt-8 max-w-2xl border-l-2 border-accent pl-5 text-lg leading-relaxed text-foreground/85"
+              >
+                {t("ambassador_text")}
+              </Reveal>
+
+              {/* meta strip — dossier style */}
+              <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border/60 sm:grid-cols-3">
+                <div className="bg-background p-4">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Anno
+                  </dt>
+                  <dd className="mt-1 font-serif text-xl">2026</dd>
+                </div>
+                <div className="bg-background p-4">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Territorio
+                  </dt>
+                  <dd className="mt-1 font-serif text-xl">Friuli V. G.</dd>
+                </div>
+                <div className="bg-background p-4">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Incarico
+                  </dt>
+                  <dd className="mt-1 font-serif text-xl italic">Pro bono</dd>
+                </div>
+              </dl>
+
+              <a
+                href="https://www.sportcity.it"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group mt-8 inline-flex items-center gap-2 border-b border-border pb-1 text-sm font-medium text-primary transition-colors hover:border-accent hover:text-accent"
+              >
+                {t("ambassador_cta")}
+                <ExternalLink size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
