@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { adminListEvents, adminUpsertEvent, adminDeleteEvent } from "@/lib/admin.functions";
 import { Trash2, Pencil, Plus, X } from "lucide-react";
+import { ImageUpload } from "@/components/ImageUpload";
 
 export const Route = createFileRoute("/_authenticated/admin/agenda")({
   component: AdminAgenda,
@@ -130,7 +131,7 @@ function AdminAgenda() {
               </div>
               <Field label="Luogo" value={editing.location || ""} onChange={(v) => setEditing({ ...editing, location: v })} />
               <Field label="URL" value={editing.url || ""} onChange={(v) => setEditing({ ...editing, url: v })} />
-              <Field label="Cover URL (opzionale)" value={editing.cover_url || ""} onChange={(v) => setEditing({ ...editing, cover_url: v })} />
+              <ImageUpload label="Copertina evento (opzionale)" value={editing.cover_url || ""} onChange={(v) => setEditing({ ...editing, cover_url: v })} />
             </div>
             <div className="mt-5 flex justify-end gap-2">
               <button onClick={() => setEditing(null)} className="rounded-md border border-border px-4 py-2 text-sm">Annulla</button>

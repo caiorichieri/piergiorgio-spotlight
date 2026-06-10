@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { adminListNews, adminUpsertNews, adminDeleteNews } from "@/lib/admin.functions";
 import { Trash2, Pencil, Plus, X } from "lucide-react";
 import { Field } from "./admin.agenda";
+import { ImageUpload } from "@/components/ImageUpload";
 
 export const Route = createFileRoute("/_authenticated/admin/news")({
   component: AdminNews,
@@ -124,7 +125,7 @@ function AdminNews() {
               <Field label="Estratto (EN)" value={editing.excerpt_en || ""} onChange={(v) => setEditing({ ...editing, excerpt_en: v })} textarea />
               <Field label="Contenuto (IT)" value={editing.body_it || ""} onChange={(v) => setEditing({ ...editing, body_it: v })} textarea />
               <Field label="Contenuto (EN)" value={editing.body_en || ""} onChange={(v) => setEditing({ ...editing, body_en: v })} textarea />
-              <Field label="Cover URL" value={editing.cover_url || ""} onChange={(v) => setEditing({ ...editing, cover_url: v })} />
+              <ImageUpload label="Copertina" value={editing.cover_url || ""} onChange={(v) => setEditing({ ...editing, cover_url: v })} />
               <div className="grid gap-3 md:grid-cols-2">
                 <label className="block">
                   <span className="block text-xs font-mono uppercase tracking-wider text-muted-foreground">Stato</span>

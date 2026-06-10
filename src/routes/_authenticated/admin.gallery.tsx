@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { adminListGallery, adminUpsertPhoto, adminDeletePhoto } from "@/lib/admin.functions";
 import { Trash2, Pencil, Plus, X } from "lucide-react";
 import { Field } from "./admin.agenda";
+import { ImageUpload } from "@/components/ImageUpload";
 
 export const Route = createFileRoute("/_authenticated/admin/gallery")({
   component: AdminGallery,
@@ -95,8 +96,7 @@ function AdminGallery() {
               <button onClick={() => setEditing(null)}><X size={18} /></button>
             </div>
             <div className="mt-4 grid gap-3">
-              <Field label="URL immagine" value={editing.url || ""} onChange={(v) => setEditing({ ...editing, url: v })} required />
-              {editing.url && <img src={editing.url} alt="" className="max-h-48 w-auto rounded-md border border-border object-contain" />}
+              <ImageUpload label="Immagine" value={editing.url || ""} onChange={(v) => setEditing({ ...editing, url: v })} required />
               <Field label="Didascalia (IT)" value={editing.caption_it || ""} onChange={(v) => setEditing({ ...editing, caption_it: v })} />
               <Field label="Didascalia (EN)" value={editing.caption_en || ""} onChange={(v) => setEditing({ ...editing, caption_en: v })} />
               <div className="grid gap-3 md:grid-cols-2">
