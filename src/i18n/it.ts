@@ -15,7 +15,8 @@ export const it = {
   hero_tag: "Profilo · Medio Friuli · FVG · Italia",
   hero_role_1: "Presidente · ASD Atletica 2000",
   hero_role_2: "Presidente · Codroipo C'è",
-  hero_role_3: "Imprenditore · Codroipo (UD)",
+  hero_role_3: "Ambasciatore · Repubblica del Movimento — Fondazione Sport City ETS",
+  hero_role_4: "Imprenditore · Codroipo (UD)",
   hero_desc:
     "Vent'anni al servizio dello sport e della comunità del Medio Friuli. Un imprenditore che ha scelto di investire il suo tempo e la sua energia nelle persone, negli atleti e nel territorio in cui è nato e cresciuto.",
   hero_kpi1_label: "Atleti tesserati FIDAL",
@@ -34,6 +35,8 @@ export const it = {
     "Non è il tipo da palcoscenico: lo si trova in pista con gli atleti, presente agli eventi, disponibile al confronto. Il suo stile è quello dell'imprenditore applicato al volontariato — pragmatico, capace di costruire squadra attorno a una visione condivisa. Nel gennaio 2026 ha festeggiato i suoi 60 anni, circondato dagli atleti e dai collaboratori delle associazioni che ha contribuito a costruire.",
   bio_p3:
     "La sua storia dimostra che il Medio Friuli ha le persone e le risorse per fare cose grandi — basta volerlo davvero.",
+  bio_p4:
+    "Il suo impegno ha trovato riconoscimento anche sul piano nazionale. Nel 2024 ha ricevuto la Stella di Bronzo al Merito Sportivo dal Comitato Italiano Paralimpico, per il lavoro pluriennale a favore dell'inclusione e dell'atletica paralimpica. Nel 2026 il Comitato Promotore della Fondazione Sport City ETS lo ha nominato Ambasciatore della Repubblica del Movimento e Delegato per la Regione Friuli Venezia Giulia — un'investitura che riconosce, in un'unica voce, l'imprenditore, il dirigente sportivo e l'uomo di territorio.",
 
   atletica_tag: "ASD Atletica 2000",
   atletica_title_1: "Da club locale",

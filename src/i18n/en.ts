@@ -15,7 +15,8 @@ export const en: typeof it = {
   hero_tag: "Profile · Medio Friuli · FVG · Italy",
   hero_role_1: "President · ASD Atletica 2000",
   hero_role_2: "President · Codroipo C'è",
-  hero_role_3: "Entrepreneur · Codroipo (UD)",
+  hero_role_3: "Ambassador · Republic of Movement — Fondazione Sport City ETS",
+  hero_role_4: "Entrepreneur · Codroipo (UD)",
   hero_desc:
     "Twenty years at the service of sport and the community of Medio Friuli. An entrepreneur who chose to invest his time and energy in people, athletes and the territory where he was born and raised.",
   hero_kpi1_label: "FIDAL-registered athletes",
@@ -33,6 +34,8 @@ export const en: typeof it = {
     "He's not the stage type: you'll find him on the track with the athletes, present at events, open to dialogue. His style is that of the entrepreneur applied to volunteer work — pragmatic, able to build a team around a shared vision. In January 2026 he turned 60, surrounded by the athletes and collaborators of the associations he helped build.",
   bio_p3:
     "His story proves that Medio Friuli has the people and the resources to do great things — you just have to truly want it.",
+  bio_p4:
+    "His work has also earned national recognition. In 2024 he received the Bronze Star for Sporting Merit from the Italian Paralympic Committee, for years of work in favour of inclusion and paralympic athletics. In 2026 the Promoting Committee of Fondazione Sport City ETS appointed him Ambassador of the Republic of Movement and Delegate for the Friuli Venezia Giulia Region — a single appointment that recognises the entrepreneur, the sports leader and the man of his land.",
 
   atletica_tag: "ASD Atletica 2000",
   atletica_title_1: "From local club",
