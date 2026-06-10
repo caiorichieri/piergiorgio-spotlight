@@ -78,17 +78,27 @@ function HomePage() {
               Piergiorgio
               <br />
               <span className="italic text-accent">Iacuzzo.</span>
-              <span className="mt-3 block font-sans text-base font-normal not-italic leading-snug text-primary-foreground/80 sm:text-lg md:text-xl">
-                Presidente ASD Atletica 2000 e Codroipo C'è · Medio Friuli
-              </span>
             </h1>
 
+            <ul className="mt-7 max-w-2xl space-y-2 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground/80 sm:text-sm">
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-1.5 w-3 shrink-0 bg-accent" />
+                {t("hero_role_1")}
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-1.5 w-3 shrink-0 bg-accent" />
+                {t("hero_role_2")}
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-1.5 w-3 shrink-0 bg-accent" />
+                {t("hero_role_3")}
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 inline-block h-1.5 w-3 shrink-0 bg-accent" />
+                {t("hero_role_4")}
+              </li>
+            </ul>
 
-            <div className="mt-6 max-w-2xl space-y-1 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground/75 sm:text-sm">
-              <div>— {t("hero_role_1")}</div>
-              <div>— {t("hero_role_2")}</div>
-              <div>— {t("hero_role_3")}</div>
-            </div>
 
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-primary-foreground/85 md:text-lg">
               {t("hero_desc")}

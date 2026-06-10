@@ -44,6 +44,7 @@ function BioPage() {
           <Reveal as="p">{t("bio_p1")}</Reveal>
           <Reveal as="p" delay={100}>{t("bio_p2")}</Reveal>
           <Reveal as="p" delay={200}>{t("bio_p3")}</Reveal>
+          <Reveal as="p" delay={300}>{t("bio_p4")}</Reveal>
         </div>
       </article>
     </>
