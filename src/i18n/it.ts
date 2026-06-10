@@ -175,6 +175,17 @@ export const it = {
   assoc_atletica_role: "Atletica leggera · FIDAL · CIP",
   assoc_codroipo_name: "Codroipo C'è",
   assoc_codroipo_role: "Attività produttive del Medio Friuli",
+  assoc_sportcity_name: "Fondazione Sport City",
+  assoc_sportcity_role: "Ambasciatore · Delegato Regione Friuli",
+
+  // ambassador / Sport City honour
+  ambassador_tag: "Nuova nomina · Maggio 2026",
+  ambassador_title_1: "Ambasciatore della",
+  ambassador_title_2: "Repubblica del Movimento.",
+  ambassador_authority: "Fondazione Sport City ETS · Delegato Regione Friuli",
+  ambassador_text:
+    "Nel maggio 2026 la Fondazione Sport City ETS, presieduta da Fabio Pagliara, ha nominato Piergiorgio Iacuzzo Ambasciatore della Repubblica del Movimento e Delegato per la Regione Friuli. Un incarico a titolo gratuito che riconosce vent'anni di impegno sul territorio e affida una missione precisa: portare in Friuli il modello operativo della Fondazione, costruire incontri e definire obiettivi condivisi per fare del movimento e dello sport un motore di benessere per le città e per le persone.",
+  ambassador_cta: "Scopri Fondazione Sport City",
 
   // misc
   loading: "Caricamento…",

@@ -167,6 +167,16 @@ export const en: typeof it = {
   assoc_atletica_role: "Track & field · FIDAL · CIP",
   assoc_codroipo_name: "Codroipo C'è",
   assoc_codroipo_role: "Productive activities of Medio Friuli",
+  assoc_sportcity_name: "Fondazione Sport City",
+  assoc_sportcity_role: "Ambassador · Friuli Region Delegate",
+
+  ambassador_tag: "New appointment · May 2026",
+  ambassador_title_1: "Ambassador of the",
+  ambassador_title_2: "Republic of Movement.",
+  ambassador_authority: "Fondazione Sport City ETS · Friuli Region Delegate",
+  ambassador_text:
+    "In May 2026 Fondazione Sport City ETS, chaired by Fabio Pagliara, appointed Piergiorgio Iacuzzo Ambassador of the Republic of Movement and Delegate for the Friuli Region. A pro-bono role that recognises twenty years of work on the ground and entrusts him with a clear mission: to bring the Foundation's operating model to Friuli, build local meetings and define shared objectives so that movement and sport become an engine of wellbeing for cities and people.",
+  ambassador_cta: "Discover Fondazione Sport City",
 
   loading: "Loading…",
   error_generic: "Something went wrong.",
