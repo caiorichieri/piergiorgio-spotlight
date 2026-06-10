@@ -307,7 +307,7 @@ function HomePage() {
                   <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                     Incarico
                   </dt>
-                  <dd className="mt-1 font-serif text-xl italic">Pro bono</dd>
+                  <dd className="mt-1 font-serif text-xl italic">Ambasciatore</dd>
                 </div>
               </dl>
 
