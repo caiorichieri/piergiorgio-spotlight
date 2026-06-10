@@ -25,6 +25,9 @@ import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
+import { Route as AuthenticatedAdminNewsRouteImport } from './routes/_authenticated/admin.news'
+import { Route as AuthenticatedAdminGalleryRouteImport } from './routes/_authenticated/admin.gallery'
+import { Route as AuthenticatedAdminAgendaRouteImport } from './routes/_authenticated/admin.agenda'
 
 const ValoriRoute = ValoriRouteImport.update({
   id: '/valori',
@@ -105,6 +108,23 @@ const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
+const AuthenticatedAdminNewsRoute = AuthenticatedAdminNewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminGalleryRoute =
+  AuthenticatedAdminGalleryRouteImport.update({
+    id: '/gallery',
+    path: '/gallery',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminAgendaRoute =
+  AuthenticatedAdminAgendaRouteImport.update({
+    id: '/agenda',
+    path: '/agenda',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -121,6 +141,9 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
+  '/admin/agenda': typeof AuthenticatedAdminAgendaRoute
+  '/admin/gallery': typeof AuthenticatedAdminGalleryRoute
+  '/admin/news': typeof AuthenticatedAdminNewsRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -137,6 +160,9 @@ export interface FileRoutesByTo {
   '/valori': typeof ValoriRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
+  '/admin/agenda': typeof AuthenticatedAdminAgendaRoute
+  '/admin/gallery': typeof AuthenticatedAdminGalleryRoute
+  '/admin/news': typeof AuthenticatedAdminNewsRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
 }
 export interface FileRoutesById {
@@ -156,6 +182,9 @@ export interface FileRoutesById {
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
+  '/_authenticated/admin/agenda': typeof AuthenticatedAdminAgendaRoute
+  '/_authenticated/admin/gallery': typeof AuthenticatedAdminGalleryRoute
+  '/_authenticated/admin/news': typeof AuthenticatedAdminNewsRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -175,6 +204,9 @@ export interface FileRouteTypes {
     | '/admin'
     | '/news/$slug'
     | '/news/'
+    | '/admin/agenda'
+    | '/admin/gallery'
+    | '/admin/news'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -191,6 +223,9 @@ export interface FileRouteTypes {
     | '/valori'
     | '/news/$slug'
     | '/news'
+    | '/admin/agenda'
+    | '/admin/gallery'
+    | '/admin/news'
     | '/admin'
   id:
     | '__root__'
@@ -209,6 +244,9 @@ export interface FileRouteTypes {
     | '/_authenticated/admin'
     | '/news/$slug'
     | '/news/'
+    | '/_authenticated/admin/agenda'
+    | '/_authenticated/admin/gallery'
+    | '/_authenticated/admin/news'
     | '/_authenticated/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -343,14 +381,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/_authenticated/admin/news': {
+      id: '/_authenticated/admin/news'
+      path: '/news'
+      fullPath: '/admin/news'
+      preLoaderRoute: typeof AuthenticatedAdminNewsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/gallery': {
+      id: '/_authenticated/admin/gallery'
+      path: '/gallery'
+      fullPath: '/admin/gallery'
+      preLoaderRoute: typeof AuthenticatedAdminGalleryRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/agenda': {
+      id: '/_authenticated/admin/agenda'
+      path: '/agenda'
+      fullPath: '/admin/agenda'
+      preLoaderRoute: typeof AuthenticatedAdminAgendaRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
   }
 }
 
 interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminAgendaRoute: typeof AuthenticatedAdminAgendaRoute
+  AuthenticatedAdminGalleryRoute: typeof AuthenticatedAdminGalleryRoute
+  AuthenticatedAdminNewsRoute: typeof AuthenticatedAdminNewsRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
 const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminAgendaRoute: AuthenticatedAdminAgendaRoute,
+  AuthenticatedAdminGalleryRoute: AuthenticatedAdminGalleryRoute,
+  AuthenticatedAdminNewsRoute: AuthenticatedAdminNewsRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
 
