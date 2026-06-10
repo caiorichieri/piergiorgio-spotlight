@@ -13,10 +13,14 @@ export const it = {
 
   // hero
   hero_tag: "Profilo · Medio Friuli · FVG · Italia",
-  hero_role_1: "Presidente · ASD Atletica 2000",
-  hero_role_2: "Presidente · Codroipo C'è",
-  hero_role_3: "Ambasciatore · Repubblica del Movimento — Fondazione Sport City ETS",
-  hero_role_4: "Imprenditore · Codroipo (UD)",
+  hero_role_1_kind: "Presidente",
+  hero_role_1_org: "ASD Atletica 2000",
+  hero_role_2_kind: "Presidente",
+  hero_role_2_org: "Codroipo C'è",
+  hero_role_3_kind: "Ambasciatore",
+  hero_role_3_org: "Fondazione Sport City",
+  hero_role_4_kind: "Imprenditore",
+  hero_role_4_org: "Medio Friuli",
   hero_desc:
     "Vent'anni al servizio dello sport e della comunità del Medio Friuli. Un imprenditore che ha scelto di investire il suo tempo e la sua energia nelle persone, negli atleti e nel territorio in cui è nato e cresciuto.",
   hero_kpi1_label: "Atleti tesserati FIDAL",
