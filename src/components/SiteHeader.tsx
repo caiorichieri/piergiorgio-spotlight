@@ -9,6 +9,7 @@ const navItems = [
   { to: "/atletica-2000", key: "nav_atletica" },
   { to: "/meeting", key: "nav_meeting" },
   { to: "/codroipo-ce", key: "nav_codroipo" },
+  { to: "/memindsport", key: "nav_memindsport" },
   { to: "/valori", key: "nav_valori" },
   { to: "/galleria", key: "nav_galleria" },
   { to: "/agenda", key: "nav_agenda" },

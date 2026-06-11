@@ -194,7 +194,56 @@ export const en: typeof it = {
     "In May 2026 Fondazione Sport City ETS, chaired by Fabio Pagliara, appointed Piergiorgio Iacuzzo Ambassador of the Republic of Movement and Delegate for the Friuli Region. A pro-bono role that recognises twenty years of work on the ground and entrusts him with a clear mission: to bring the Foundation's operating model to Friuli, build local meetings and define shared objectives so that movement and sport become an engine of wellbeing for cities and people.",
   ambassador_cta: "Discover Fondazione Sport City",
 
+  nav_memindsport: "MeMindSport",
+  mms_hero_tag: "Ambassador · 2026",
+  mms_hero_title_1: "The mind trains",
+  mms_hero_title_2: "the body.",
+  mms_intro_eyebrow: "The project",
+  mms_intro_title: "Ambassador of MeMindSport.",
+  mms_intro_text:
+    "MeMindSport is an authorised health centre combining sport psychology, mental coaching, immersive VR environments and an AI-powered app to train the part of you that competes before the body does. Piergiorgio Iacuzzo joins as ambassador of the project: living proof, on the field, that daily discipline, self-awareness and mental preparation make the difference — at sixty as at twenty.",
+  mms_visit_site: "Visit memindsport.it",
+  mms_pillars_eyebrow: "The four pillars",
+  mms_pillars_title: "Mind, body, data, consistency.",
+  mms_pillar1_title: "Mental preparation",
+  mms_pillar1_text:
+    "Managing pressure, mistakes and expectations. A clear mind is what separates training from competition — and the athlete from the example.",
+  mms_pillar2_title: "Daily training",
+  mms_pillar2_text:
+    "A steady routine, year after year. Discipline is not a heroic act: it's the sum of small choices, repeated every day with care.",
+  mms_pillar3_title: "App + AI between sessions",
+  mms_pillar3_text:
+    "The MeMindSport app tracks performance and progress, supports the athlete between sessions and helps you get to know yourself better.",
+  mms_pillar4_title: "An example, an inspiration",
+  mms_pillar4_text:
+    "Showing the new generations — and anyone who thinks it's too late — that movement is a life-long investment, at any age.",
+  mms_routine_eyebrow: "The routine",
+  mms_routine_title_1: "Every day,",
+  mms_routine_title_2: "no shortcuts.",
+  mms_routine_p1:
+    "Piergiorgio trains every day. Not to compete against someone else, but to remain a credible reference for the athletes he leads and the people who look up to him. The track, the run, the gym: non-negotiable appointments, set in the diary like a business meeting.",
+  mms_routine_p2:
+    "Joining MeMindSport adds a new layer of awareness to this discipline. Mental preparation techniques, focus work, immersive environments to simulate pressure: tools that until recently were reserved for elite athletes and that now become available to anyone who wants to improve.",
+  mms_routine_p3:
+    "The message is simple and direct: movement is health, it's culture, it's example. And it always starts — from the mind.",
+  mms_meta_role: "Role",
+  mms_meta_role_value: "Ambassador",
+  mms_meta_project: "Project",
+  mms_meta_focus: "Focus",
+  mms_meta_focus_value: "Mind + Body",
+  mms_cta_title: "Train the mind first. Then everything else.",
+  mms_cta_text:
+    "Discover the MeMindSport path: licensed psychologists, mental coaches, VR and an AI-powered app to support you between sessions.",
+
+  mms_home_eyebrow: "New role · 2026",
+  mms_home_title_1: "Ambassador",
+  mms_home_title_2: "of MeMindSport.",
+  mms_home_text:
+    "Mind and body, trained together. Piergiorgio becomes ambassador of MeMindSport: a project bringing sport psychology, mental coaching and technology alongside athletes — and anyone who wants to improve, every day.",
+  mms_home_cta: "Discover the project",
+
   loading: "Loading…",
   error_generic: "Something went wrong.",
 };
+
 

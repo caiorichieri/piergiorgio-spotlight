@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ExternalLink, Award } from "lucide-react";
+import { ArrowRight, ExternalLink, Award, Brain } from "lucide-react";
 import { useT } from "../i18n";
 import { Reveal, SectionEyebrow } from "../components/Reveal";
 import portrait from "../assets/piergiorgio-cutout.png.asset.json";
@@ -8,6 +8,7 @@ import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
 import logoSportCity from "../assets/logo-fondazione-sport-city.png.asset.json";
 import logoPGFriuli from "../assets/logo-pg-friuli-trasparente.png.asset.json";
+import logoMeMind from "../assets/logo-memindsport.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -363,6 +364,78 @@ function HomePage() {
               {t("medal_cta")} <ArrowRight size={14} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* MEMINDSPORT HIGHLIGHT */}
+      <section className="relative overflow-hidden border-y border-border bg-background">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-10 top-6 select-none font-serif text-[160px] leading-none tracking-tighter text-foreground/[0.04] md:text-[240px]"
+        >
+          Mind
+        </div>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-4">
+              <SectionEyebrow>
+                <Brain size={12} className="mr-1.5 inline -translate-y-px text-accent" />
+                {t("mms_home_eyebrow")}
+              </SectionEyebrow>
+              <span className="h-px flex-1 bg-border" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                N° 04 · Ambasciatore
+              </span>
+            </div>
+            <h2 className="mt-8 font-serif text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
+              {t("mms_home_title_1")}{" "}
+              <span className="italic text-accent">{t("mms_home_title_2")}</span>
+            </h2>
+            <Reveal
+              as="p"
+              className="mt-7 max-w-2xl border-l-2 border-accent pl-5 text-lg leading-relaxed text-foreground/85"
+            >
+              {t("mms_home_text")}
+            </Reveal>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                to="/memindsport"
+                className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground transition-transform hover:-translate-y-0.5"
+              >
+                {t("mms_home_cta")}
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a
+                href="https://www.memindsport.it"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                memindsport.it <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+
+          <Reveal className="lg:col-span-5">
+            <div className="relative aspect-square w-full overflow-hidden rounded-md border border-border bg-card">
+              <span className="absolute left-3 top-3 h-3 w-3 border-l border-t border-accent" />
+              <span className="absolute right-3 top-3 h-3 w-3 border-r border-t border-accent" />
+              <span className="absolute bottom-3 left-3 h-3 w-3 border-b border-l border-accent" />
+              <span className="absolute bottom-3 right-3 h-3 w-3 border-b border-r border-accent" />
+              <div className="flex h-full w-full items-center justify-center p-12">
+                <img
+                  src={logoMeMind.url}
+                  alt="MeMindSport"
+                  className="max-h-full w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
+                <span>Mente · Corpo · Dati</span>
+                <span className="text-accent">✕ ✕ ✕</span>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

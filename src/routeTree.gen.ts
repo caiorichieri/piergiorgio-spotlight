@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ValoriRouteImport } from './routes/valori'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as MemindsportRouteImport } from './routes/memindsport'
 import { Route as MeetingRouteImport } from './routes/meeting'
 import { Route as GalleriaRouteImport } from './routes/galleria'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
@@ -44,6 +45,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MemindsportRoute = MemindsportRouteImport.update({
+  id: '/memindsport',
+  path: '/memindsport',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MeetingRoute = MeetingRouteImport.update({
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/cookie-policy': typeof CookiePolicyRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/cookie-policy': typeof CookiePolicyRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
@@ -194,6 +202,7 @@ export interface FileRoutesById {
   '/cookie-policy': typeof CookiePolicyRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
@@ -218,6 +227,7 @@ export interface FileRouteTypes {
     | '/cookie-policy'
     | '/galleria'
     | '/meeting'
+    | '/memindsport'
     | '/privacy'
     | '/sitemap.xml'
     | '/valori'
@@ -240,6 +250,7 @@ export interface FileRouteTypes {
     | '/cookie-policy'
     | '/galleria'
     | '/meeting'
+    | '/memindsport'
     | '/privacy'
     | '/sitemap.xml'
     | '/valori'
@@ -262,6 +273,7 @@ export interface FileRouteTypes {
     | '/cookie-policy'
     | '/galleria'
     | '/meeting'
+    | '/memindsport'
     | '/privacy'
     | '/sitemap.xml'
     | '/valori'
@@ -286,6 +298,7 @@ export interface RootRouteChildren {
   CookiePolicyRoute: typeof CookiePolicyRoute
   GalleriaRoute: typeof GalleriaRoute
   MeetingRoute: typeof MeetingRoute
+  MemindsportRoute: typeof MemindsportRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ValoriRoute: typeof ValoriRoute
@@ -314,6 +327,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/memindsport': {
+      id: '/memindsport'
+      path: '/memindsport'
+      fullPath: '/memindsport'
+      preLoaderRoute: typeof MemindsportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/meeting': {
@@ -485,6 +505,7 @@ const rootRouteChildren: RootRouteChildren = {
   CookiePolicyRoute: CookiePolicyRoute,
   GalleriaRoute: GalleriaRoute,
   MeetingRoute: MeetingRoute,
+  MemindsportRoute: MemindsportRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ValoriRoute: ValoriRoute,
@@ -494,13 +515,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
