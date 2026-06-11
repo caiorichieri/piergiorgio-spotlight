@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ValoriRouteImport } from './routes/valori'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MeetingRouteImport } from './routes/meeting'
 import { Route as GalleriaRouteImport } from './routes/galleria'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContattiRouteImport } from './routes/contatti'
 import { Route as CodroipoCeRouteImport } from './routes/codroipo-ce'
 import { Route as BioRouteImport } from './routes/bio'
@@ -39,6 +41,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MeetingRoute = MeetingRouteImport.update({
   id: '/meeting',
   path: '/meeting',
@@ -47,6 +54,11 @@ const MeetingRoute = MeetingRouteImport.update({
 const GalleriaRoute = GalleriaRouteImport.update({
   id: '/galleria',
   path: '/galleria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContattiRoute = ContattiRouteImport.update({
@@ -134,8 +146,10 @@ export interface FileRoutesByFullPath {
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
@@ -154,8 +168,10 @@ export interface FileRoutesByTo {
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -175,8 +191,10 @@ export interface FileRoutesById {
   '/bio': typeof BioRoute
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/galleria': typeof GalleriaRoute
   '/meeting': typeof MeetingRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
@@ -197,8 +215,10 @@ export interface FileRouteTypes {
     | '/bio'
     | '/codroipo-ce'
     | '/contatti'
+    | '/cookie-policy'
     | '/galleria'
     | '/meeting'
+    | '/privacy'
     | '/sitemap.xml'
     | '/valori'
     | '/admin'
@@ -217,8 +237,10 @@ export interface FileRouteTypes {
     | '/bio'
     | '/codroipo-ce'
     | '/contatti'
+    | '/cookie-policy'
     | '/galleria'
     | '/meeting'
+    | '/privacy'
     | '/sitemap.xml'
     | '/valori'
     | '/news/$slug'
@@ -237,8 +259,10 @@ export interface FileRouteTypes {
     | '/bio'
     | '/codroipo-ce'
     | '/contatti'
+    | '/cookie-policy'
     | '/galleria'
     | '/meeting'
+    | '/privacy'
     | '/sitemap.xml'
     | '/valori'
     | '/_authenticated/admin'
@@ -259,8 +283,10 @@ export interface RootRouteChildren {
   BioRoute: typeof BioRoute
   CodroipoCeRoute: typeof CodroipoCeRoute
   ContattiRoute: typeof ContattiRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
   GalleriaRoute: typeof GalleriaRoute
   MeetingRoute: typeof MeetingRoute
+  PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ValoriRoute: typeof ValoriRoute
   NewsSlugRoute: typeof NewsSlugRoute
@@ -283,6 +309,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/meeting': {
       id: '/meeting'
       path: '/meeting'
@@ -295,6 +328,13 @@ declare module '@tanstack/react-router' {
       path: '/galleria'
       fullPath: '/galleria'
       preLoaderRoute: typeof GalleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contatti': {
@@ -442,8 +482,10 @@ const rootRouteChildren: RootRouteChildren = {
   BioRoute: BioRoute,
   CodroipoCeRoute: CodroipoCeRoute,
   ContattiRoute: ContattiRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
   GalleriaRoute: GalleriaRoute,
   MeetingRoute: MeetingRoute,
+  PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ValoriRoute: ValoriRoute,
   NewsSlugRoute: NewsSlugRoute,
