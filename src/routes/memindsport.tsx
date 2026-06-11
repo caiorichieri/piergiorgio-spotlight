@@ -3,7 +3,7 @@ import { ExternalLink, Brain, Activity, Smartphone, Sparkles } from "lucide-reac
 import { useT } from "../i18n";
 import { PageHero } from "../components/PageHero";
 import { Reveal, SectionEyebrow } from "../components/Reveal";
-import logoMeMind from "../assets/logo-memindsport.png.asset.json";
+
 import memindHero from "../assets/memindsport-hero.png.asset.json";
 import portrait from "../assets/piergiorgio-portrait.jpg.asset.json";
 import premiazione from "../assets/piergiorgio-premiazione.jpg.asset.json";
@@ -76,39 +76,26 @@ function MeMindSportPage() {
           </figure>
         </div>
 
-        <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-4">
-            <div className="flex items-center justify-center rounded-md border border-border bg-card p-8">
-              <img
-                src={logoMeMind.url}
-                alt="MeMindSport"
-                className="h-16 w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+          <SectionEyebrow>{t("mms_intro_eyebrow")}</SectionEyebrow>
+          <h2 className="font-serif text-3xl leading-tight md:text-4xl">
+            {t("mms_intro_title")}
+          </h2>
+          <Reveal
+            as="p"
+            className="mt-6 max-w-3xl border-l-2 border-accent pl-5 text-lg leading-relaxed text-foreground/85"
+          >
+            {t("mms_intro_text")}
           </Reveal>
-
-          <div className="lg:col-span-8">
-            <SectionEyebrow>{t("mms_intro_eyebrow")}</SectionEyebrow>
-            <h2 className="font-serif text-3xl leading-tight md:text-4xl">
-              {t("mms_intro_title")}
-            </h2>
-            <Reveal
-              as="p"
-              className="mt-6 max-w-2xl border-l-2 border-accent pl-5 text-lg leading-relaxed text-foreground/85"
-            >
-              {t("mms_intro_text")}
-            </Reveal>
-            <a
-              href="https://www.memindsport.it"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="group mt-8 inline-flex items-center gap-2 border-b border-border pb-1 text-sm font-medium text-primary transition-colors hover:border-accent hover:text-accent"
-            >
-              {t("mms_visit_site")}
-              <ExternalLink size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-          </div>
+          <a
+            href="https://www.memindsport.it"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="group mt-8 inline-flex items-center gap-2 border-b border-border pb-1 text-sm font-medium text-primary transition-colors hover:border-accent hover:text-accent"
+          >
+            {t("mms_visit_site")}
+            <ExternalLink size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
         </div>
       </section>
 
