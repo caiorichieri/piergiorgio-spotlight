@@ -121,6 +121,33 @@ function ContactPage() {
             />
           </label>
 
+          <div className="rounded-md border border-border bg-muted/30 p-3 text-xs text-muted-foreground">
+            {t("contact_titolare_note")}
+          </div>
+
+          <label className="flex items-start gap-2.5 text-sm text-foreground/85">
+            <input
+              type="checkbox"
+              checked={privacy}
+              onChange={(e) => {
+                setPrivacy(e.target.checked);
+                if (e.target.checked) setPrivacyErr(false);
+              }}
+              className="mt-0.5 h-4 w-4 shrink-0 accent-primary"
+              required
+            />
+            <span>
+              {t("contact_privacy_label")}
+              <Link to="/privacy" className="underline hover:text-accent">
+                {t("contact_privacy_link")}
+              </Link>
+              {t("contact_privacy_label_2")}
+            </span>
+          </label>
+          {privacyErr && (
+            <div className="text-sm text-destructive">{t("contact_privacy_required")}</div>
+          )}
+
           <div className="flex flex-wrap items-center gap-4">
             <button
               type="submit"
