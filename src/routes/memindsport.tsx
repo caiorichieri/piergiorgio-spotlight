@@ -6,7 +6,7 @@ import { Reveal, SectionEyebrow } from "../components/Reveal";
 
 import memindHero from "../assets/memindsport-hero.png.asset.json";
 import portrait from "../assets/piergiorgio-portrait.jpg.asset.json";
-import premiazione from "../assets/piergiorgio-premiazione.jpg.asset.json";
+import premiazione from "../assets/piergiorgio-marathon.jpg.asset.json";
 
 export const Route = createFileRoute("/memindsport")({
   head: () => ({
