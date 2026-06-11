@@ -30,16 +30,24 @@ function ContactPage() {
   const { t } = useT();
   const send = useServerFn(submitContact);
   const [status, setStatus] = useState<Status>("idle");
+  const [privacy, setPrivacy] = useState(false);
+  const [privacyErr, setPrivacyErr] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!privacy) {
+      setPrivacyErr(true);
+      return;
+    }
+    setPrivacyErr(false);
     setStatus("sending");
     try {
       const r = await send({ data: form });
       if (r.ok) {
         setStatus("ok");
         setForm({ name: "", email: "", subject: "", message: "" });
+        setPrivacy(false);
       } else {
         setStatus("err");
       }
