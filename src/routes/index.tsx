@@ -9,6 +9,7 @@ import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
 import logoSportCity from "../assets/logo-fondazione-sport-city.png.asset.json";
 import logoPGFriuli from "../assets/logo-pg-friuli-trasparente.png.asset.json";
 import logoMeMind from "../assets/logo-memindsport.png.asset.json";
+import memindHero from "../assets/memindsport-hero.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -417,24 +418,22 @@ function HomePage() {
           </div>
 
           <Reveal className="lg:col-span-5">
-            <div className="relative aspect-square w-full overflow-hidden rounded-md border border-border bg-card">
-              <span className="absolute left-3 top-3 h-3 w-3 border-l border-t border-accent" />
-              <span className="absolute right-3 top-3 h-3 w-3 border-r border-t border-accent" />
-              <span className="absolute bottom-3 left-3 h-3 w-3 border-b border-l border-accent" />
-              <span className="absolute bottom-3 right-3 h-3 w-3 border-b border-r border-accent" />
-              <div className="flex h-full w-full items-center justify-center p-12">
-                <img
-                  src={logoMeMind.url}
-                  alt="MeMindSport"
-                  className="max-h-full w-auto object-contain"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
-                <span>Mente · Corpo · Dati</span>
+            <figure className="relative overflow-hidden rounded-md border border-border bg-card shadow-lg">
+              <span className="absolute left-3 top-3 z-10 h-3 w-3 border-l border-t border-accent" />
+              <span className="absolute right-3 top-3 z-10 h-3 w-3 border-r border-t border-accent" />
+              <span className="absolute bottom-3 left-3 z-10 h-3 w-3 border-b border-l border-accent" />
+              <span className="absolute bottom-3 right-3 z-10 h-3 w-3 border-b border-r border-accent" />
+              <img
+                src={memindHero.url}
+                alt="MeMindSport — Allena la parte di te che gareggia prima del corpo"
+                className="block h-auto w-full"
+                loading="lazy"
+              />
+              <figcaption className="flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
+                <span>memindsport.it</span>
                 <span className="text-accent">✕ ✕ ✕</span>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
