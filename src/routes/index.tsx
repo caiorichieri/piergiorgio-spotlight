@@ -3,6 +3,7 @@ import { ArrowRight, ExternalLink, Award, Brain } from "lucide-react";
 import { useT } from "../i18n";
 import { Reveal, SectionEyebrow } from "../components/Reveal";
 import portrait from "../assets/piergiorgio-cutout.png.asset.json";
+import marathonCutout from "../assets/piergiorgio-marathon-cutout.png.asset.json";
 import medal from "../assets/medaglia-paralimpico.jpg.asset.json";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
