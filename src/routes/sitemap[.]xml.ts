@@ -26,6 +26,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/agenda", changefreq: "weekly", priority: "0.7" },
           { path: "/news", changefreq: "weekly", priority: "0.8" },
           { path: "/contatti", changefreq: "yearly", priority: "0.5" },
+          { path: "/privacy", changefreq: "yearly", priority: "0.3" },
+          { path: "/cookie-policy", changefreq: "yearly", priority: "0.3" },
         ];
 
         let newsEntries: SitemapEntry[] = [];

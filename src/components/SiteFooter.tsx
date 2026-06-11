@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ExternalLink } from "lucide-react";
 import { useT } from "../i18n";
+import { openCookiePreferences } from "./CookieBanner";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
 import logoSportCity from "../assets/logo-fondazione-sport-city.png.asset.json";
@@ -144,8 +145,21 @@ export function SiteFooter() {
               · {t("footer_credit_role")}
             </span>
           </div>
-          <div className="text-[11px] text-primary-foreground/55">
-            © {year} Piergiorgio Iacuzzo. {t("footer_rights")}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-primary-foreground/55">
+            <Link to="/privacy" className="hover:text-accent">
+              {t("footer_privacy")}
+            </Link>
+            <Link to="/cookie-policy" className="hover:text-accent">
+              {t("footer_cookie")}
+            </Link>
+            <button
+              onClick={openCookiePreferences}
+              type="button"
+              className="hover:text-accent"
+            >
+              {t("footer_manage_cookies")}
+            </button>
+            <span className="ml-auto">© {year} Piergiorgio Iacuzzo. {t("footer_rights")}</span>
           </div>
         </div>
       </div>
