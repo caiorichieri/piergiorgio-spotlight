@@ -3,7 +3,7 @@ import { ExternalLink, Brain, Activity, Smartphone, Sparkles } from "lucide-reac
 import { useT } from "../i18n";
 import { PageHero } from "../components/PageHero";
 import { Reveal, SectionEyebrow } from "../components/Reveal";
-import logoMeMind from "../assets/logo-memindsport.png.asset.json";
+
 import memindHero from "../assets/memindsport-hero.png.asset.json";
 import portrait from "../assets/piergiorgio-portrait.jpg.asset.json";
 import premiazione from "../assets/piergiorgio-premiazione.jpg.asset.json";
