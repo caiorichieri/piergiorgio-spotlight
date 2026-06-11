@@ -160,6 +160,15 @@ export const en: typeof it = {
   footer_rights: "All rights reserved.",
   footer_credit_intro: "Site designed and built by",
   footer_credit_role: "Digital communication · Friuli Venezia Giulia",
+  footer_privacy: "Privacy Policy",
+  footer_cookie: "Cookie Policy",
+  footer_manage_cookies: "Manage cookies",
+
+  contact_privacy_label: "I have read the ",
+  contact_privacy_link: "Privacy Policy",
+  contact_privacy_label_2: " and consent to the processing of my personal data to reply to my enquiry.",
+  contact_privacy_required: "You must accept the privacy policy to send the message.",
+  contact_titolare_note: "Data controller: Piergiorgio Iacuzzo — Codroipo (UD), Italy.",
 
   medal_tag: "Official recognition",
   medal_title: "Bronze Star of Sporting Merit",

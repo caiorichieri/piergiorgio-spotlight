@@ -166,6 +166,16 @@ export const it = {
   footer_rights: "Tutti i diritti riservati.",
   footer_credit_intro: "Sito ideato e realizzato da",
   footer_credit_role: "Comunicazione digitale · Friuli Venezia Giulia",
+  footer_privacy: "Informativa Privacy",
+  footer_cookie: "Cookie Policy",
+  footer_manage_cookies: "Gestisci cookie",
+
+  // contact privacy
+  contact_privacy_label: "Ho letto l'",
+  contact_privacy_link: "Informativa Privacy",
+  contact_privacy_label_2: " e acconsento al trattamento dei miei dati personali per rispondere alla mia richiesta.",
+  contact_privacy_required: "È necessario accettare l'informativa privacy per inviare il messaggio.",
+  contact_titolare_note: "Titolare del trattamento: Piergiorgio Iacuzzo — Codroipo (UD).",
 
   // medal / recognition
   medal_tag: "Riconoscimento ufficiale",
