@@ -47,6 +47,7 @@ export function SiteFooter() {
               ["/atletica-2000", "nav_atletica"],
               ["/meeting", "nav_meeting"],
               ["/codroipo-ce", "nav_codroipo"],
+              ["/memindsport", "nav_memindsport"],
               ["/valori", "nav_valori"],
               ["/galleria", "nav_galleria"],
               ["/agenda", "nav_agenda"],

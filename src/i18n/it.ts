@@ -204,8 +204,59 @@ export const it = {
     "Nel maggio 2026 la Fondazione Sport City ETS, presieduta da Fabio Pagliara, ha nominato Piergiorgio Iacuzzo Ambasciatore della Repubblica del Movimento e Delegato per la Regione Friuli. Un incarico a titolo gratuito che riconosce vent'anni di impegno sul territorio e affida una missione precisa: portare in Friuli il modello operativo della Fondazione, costruire incontri e definire obiettivi condivisi per fare del movimento e dello sport un motore di benessere per le città e per le persone.",
   ambassador_cta: "Scopri Fondazione Sport City",
 
+  // memindsport
+  nav_memindsport: "MeMindSport",
+  mms_hero_tag: "Ambasciatore · 2026",
+  mms_hero_title_1: "La testa allena",
+  mms_hero_title_2: "il corpo.",
+  mms_intro_eyebrow: "Il progetto",
+  mms_intro_title: "Ambasciatore di MeMindSport.",
+  mms_intro_text:
+    "MeMindSport è un centro sanitario autorizzato che unisce psicologia dello sport, mental coaching, ambienti immersivi in VR e un'app con AI per allenare la parte di te che gareggia prima del corpo. Piergiorgio Iacuzzo entra come ambasciatore del progetto: testimone, sul campo, di come disciplina quotidiana, consapevolezza e preparazione mentale facciano la differenza — a sessant'anni come a venti.",
+  mms_visit_site: "Visita memindsport.it",
+  mms_pillars_eyebrow: "I quattro pilastri",
+  mms_pillars_title: "Mente, corpo, dati, costanza.",
+  mms_pillar1_title: "Preparazione mentale",
+  mms_pillar1_text:
+    "Gestire pressione, errore e aspettative. La mente lucida è ciò che separa l'allenamento dalla gara — e l'atleta dall'esempio.",
+  mms_pillar2_title: "Allenamento quotidiano",
+  mms_pillar2_text:
+    "Routine costante, anno dopo anno. La disciplina non è un gesto eroico: è la somma di scelte piccole, ripetute ogni giorno con cura.",
+  mms_pillar3_title: "App + AI tra le sessioni",
+  mms_pillar3_text:
+    "L'app MeMindSport monitora performance e progressi, accompagna l'atleta tra una sessione e l'altra e aiuta a conoscere meglio se stessi.",
+  mms_pillar4_title: "Esempio e ispirazione",
+  mms_pillar4_text:
+    "Mostrare alle nuove generazioni — e a chiunque pensi di non essere più in tempo — che il movimento è un investimento di vita, a qualunque età.",
+  mms_routine_eyebrow: "La routine",
+  mms_routine_title_1: "Ogni giorno,",
+  mms_routine_title_2: "senza scorciatoie.",
+  mms_routine_p1:
+    "Piergiorgio si allena ogni giorno. Non per gareggiare contro qualcun altro, ma per restare un riferimento credibile per gli atleti che presiede e per le persone che lo guardano. La pista, la corsa, la palestra: appuntamenti non negoziabili, fissati in agenda come una riunione di lavoro.",
+  mms_routine_p2:
+    "L'incontro con MeMindSport aggiunge a questa disciplina un livello di consapevolezza nuovo. Tecniche di preparazione mentale, lavoro sulla concentrazione, ambienti immersivi per simulare la pressione: strumenti che fino a poco tempo fa erano riservati agli atleti d'élite e che oggi diventano patrimonio di chiunque voglia migliorarsi.",
+  mms_routine_p3:
+    "Il messaggio è semplice e diretto: il movimento è salute, è cultura, è esempio. E si comincia — sempre — dalla testa.",
+  mms_meta_role: "Ruolo",
+  mms_meta_role_value: "Ambasciatore",
+  mms_meta_project: "Progetto",
+  mms_meta_focus: "Focus",
+  mms_meta_focus_value: "Mente + Corpo",
+  mms_cta_title: "Allena prima la mente. Poi tutto il resto.",
+  mms_cta_text:
+    "Scopri il percorso MeMindSport: psicologi iscritti all'Ordine, mental coach, VR e un'app con AI per accompagnarti tra una sessione e l'altra.",
+
+  // home — memindsport highlight
+  mms_home_eyebrow: "Nuovo ruolo · 2026",
+  mms_home_title_1: "Ambasciatore",
+  mms_home_title_2: "MeMindSport.",
+  mms_home_text:
+    "Mente e corpo, allenati insieme. Piergiorgio diventa ambasciatore di MeMindSport: un progetto che porta psicologia dello sport, mental coaching e tecnologia accanto agli atleti — e a chiunque voglia migliorarsi, ogni giorno.",
+  mms_home_cta: "Scopri il progetto",
+
   // misc
   loading: "Caricamento…",
   error_generic: "Qualcosa è andato storto.",
 };
+
 
