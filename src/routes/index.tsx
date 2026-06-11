@@ -8,7 +8,6 @@ import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
 import logoSportCity from "../assets/logo-fondazione-sport-city.png.asset.json";
 import logoPGFriuli from "../assets/logo-pg-friuli-trasparente.png.asset.json";
-import logoMeMind from "../assets/logo-memindsport.png.asset.json";
 import memindHero from "../assets/memindsport-hero.png.asset.json";
 
 export const Route = createFileRoute("/")({
