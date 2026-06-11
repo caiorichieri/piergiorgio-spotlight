@@ -179,6 +179,7 @@ function RootComponent() {
             <Outlet />
           </main>
           <SiteFooter />
+          <CookieBanner />
         </div>
       </LanguageProvider>
     </QueryClientProvider>
