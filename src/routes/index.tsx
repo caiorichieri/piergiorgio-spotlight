@@ -418,22 +418,38 @@ function HomePage() {
 
           <Reveal className="lg:col-span-5">
             <figure className="relative overflow-hidden rounded-md border border-border bg-card shadow-lg">
-              <span className="absolute left-3 top-3 z-10 h-3 w-3 border-l border-t border-accent" />
-              <span className="absolute right-3 top-3 z-10 h-3 w-3 border-r border-t border-accent" />
-              <span className="absolute bottom-3 left-3 z-10 h-3 w-3 border-b border-l border-accent" />
-              <span className="absolute bottom-3 right-3 z-10 h-3 w-3 border-b border-r border-accent" />
-              <img
-                src={memindHero.url}
-                alt="MeMindSport — Allena la parte di te che gareggia prima del corpo"
-                className="block h-auto w-full"
-                loading="lazy"
-              />
-              <figcaption className="flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
-                <span>memindsport.it</span>
+              <span className="absolute left-3 top-3 z-20 h-3 w-3 border-l border-t border-accent" />
+              <span className="absolute right-3 top-3 z-20 h-3 w-3 border-r border-t border-accent" />
+              <span className="absolute bottom-3 left-3 z-20 h-3 w-3 border-b border-l border-accent" />
+              <span className="absolute bottom-3 right-3 z-20 h-3 w-3 border-b border-r border-accent" />
+              <div className="relative">
+                <img
+                  src={memindHero.url}
+                  alt="MeMindSport — Allena la parte di te che gareggia prima del corpo"
+                  className="block h-auto w-full"
+                  style={{ filter: "brightness(1.25) contrast(0.92) saturate(0.85)", opacity: 0.55 }}
+                  loading="lazy"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0"
+                  style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 45%, rgba(0,0,0,0.25) 100%)" }}
+                />
+                <img
+                  src={portrait.url}
+                  alt="Piergiorgio Iacuzzo — ambasciatore MeMindSport"
+                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-[110%] w-auto max-w-none object-contain"
+                  style={{ filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.35))" }}
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="relative z-10 flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
+                <span>memindsport.it · ambasciatore</span>
                 <span className="text-accent">✕ ✕ ✕</span>
               </figcaption>
             </figure>
           </Reveal>
+
         </div>
       </section>
 
