@@ -4,6 +4,7 @@ import { useT } from "../i18n";
 import { PageHero } from "../components/PageHero";
 import { Reveal, SectionEyebrow } from "../components/Reveal";
 import logoMeMind from "../assets/logo-memindsport.png.asset.json";
+import memindHero from "../assets/memindsport-hero.png.asset.json";
 import portrait from "../assets/piergiorgio-portrait.jpg.asset.json";
 import premiazione from "../assets/piergiorgio-premiazione.jpg.asset.json";
 
@@ -54,31 +55,40 @@ function MeMindSportPage() {
         }
       />
 
-      {/* Intro + logo */}
+      {/* Full-bleed hero screenshot from memindsport.it */}
       <section className="border-b border-border bg-background">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-5">
-            <div className="relative aspect-square w-full overflow-hidden rounded-md border border-border bg-card">
-              <span className="absolute left-3 top-3 h-3 w-3 border-l border-t border-accent" />
-              <span className="absolute right-3 top-3 h-3 w-3 border-r border-t border-accent" />
-              <span className="absolute bottom-3 left-3 h-3 w-3 border-b border-l border-accent" />
-              <span className="absolute bottom-3 right-3 h-3 w-3 border-b border-r border-accent" />
-              <div className="flex h-full w-full items-center justify-center p-12">
-                <img
-                  src={logoMeMind.url}
-                  alt="MeMindSport"
-                  className="max-h-full w-auto object-contain"
-                  loading="eager"
-                />
-              </div>
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
-                <span>memindsport.it</span>
-                <span className="text-accent">✕ ✕ ✕</span>
-              </div>
+        <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6">
+          <figure className="relative overflow-hidden rounded-md border border-border bg-card shadow-lg">
+            <span className="absolute left-3 top-3 z-10 h-3 w-3 border-l border-t border-accent" />
+            <span className="absolute right-3 top-3 z-10 h-3 w-3 border-r border-t border-accent" />
+            <span className="absolute bottom-3 left-3 z-10 h-3 w-3 border-b border-l border-accent" />
+            <span className="absolute bottom-3 right-3 z-10 h-3 w-3 border-b border-r border-accent" />
+            <img
+              src={memindHero.url}
+              alt="MeMindSport — Allena la parte di te che gareggia prima del corpo"
+              className="block h-auto w-full"
+              loading="eager"
+            />
+            <figcaption className="flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
+              <span>memindsport.it · Allenamento mentale per sportivi</span>
+              <span className="text-accent">✕ ✕ ✕</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-4">
+            <div className="flex items-center justify-center rounded-md border border-border bg-card p-8">
+              <img
+                src={logoMeMind.url}
+                alt="MeMindSport"
+                className="h-16 w-auto object-contain"
+                loading="lazy"
+              />
             </div>
           </Reveal>
 
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-8">
             <SectionEyebrow>{t("mms_intro_eyebrow")}</SectionEyebrow>
             <h2 className="font-serif text-3xl leading-tight md:text-4xl">
               {t("mms_intro_title")}
