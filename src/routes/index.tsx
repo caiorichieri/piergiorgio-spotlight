@@ -3,6 +3,7 @@ import { ArrowRight, ExternalLink, Award, Brain } from "lucide-react";
 import { useT } from "../i18n";
 import { Reveal, SectionEyebrow } from "../components/Reveal";
 import portrait from "../assets/piergiorgio-cutout.png.asset.json";
+import marathonCutout from "../assets/piergiorgio-marathon-cutout.png.asset.json";
 import medal from "../assets/medaglia-paralimpico.jpg.asset.json";
 import logoAtletica from "../assets/logo-atletica-2000.png.asset.json";
 import logoCodroipo from "../assets/logo-codroipo-ce.png.asset.json";
@@ -436,12 +437,13 @@ function HomePage() {
                   style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 45%, rgba(0,0,0,0.25) 100%)" }}
                 />
                 <img
-                  src={portrait.url}
+                  src={marathonCutout.url}
                   alt="Piergiorgio Iacuzzo — ambasciatore MeMindSport"
-                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-[110%] w-auto max-w-none object-contain"
+                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-[115%] w-auto max-w-none object-contain"
                   style={{ filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.35))" }}
                   loading="lazy"
                 />
+
               </div>
               <figcaption className="relative z-10 flex items-center justify-between border-t border-border bg-background/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
                 <span>memindsport.it · ambasciatore</span>
