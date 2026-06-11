@@ -439,7 +439,7 @@ function HomePage() {
                 <img
                   src={marathonCutout.url}
                   alt="Piergiorgio Iacuzzo — ambasciatore MeMindSport"
-                  className="pointer-events-none absolute -bottom-6 right-0 z-10 h-[115%] w-auto max-w-none object-contain"
+                  className="pointer-events-none absolute -bottom-14 right-0 z-10 h-[115%] w-auto max-w-none object-contain"
                   style={{ filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.35))" }}
                   loading="lazy"
                 />
