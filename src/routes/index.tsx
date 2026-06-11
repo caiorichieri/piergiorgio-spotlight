@@ -238,7 +238,7 @@ function HomePage() {
             </SectionEyebrow>
             <span className="h-px flex-1 bg-border" />
             <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              N° 03 · Honorificenze
+              N° 03 · Onorificenze
             </span>
           </div>
 
