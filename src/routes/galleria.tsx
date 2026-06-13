@@ -1,13 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import { useT } from "../i18n";
 import { PageHero } from "../components/PageHero";
-import { getGallery } from "../lib/content.functions";
+import { getAlbums } from "../lib/content.functions";
+import { Images } from "lucide-react";
 
-const photosQO = queryOptions({
-  queryKey: ["gallery"],
-  queryFn: () => getGallery(),
+const albumsQO = queryOptions({
+  queryKey: ["gallery-albums"],
+  queryFn: () => getAlbums(),
 });
 
 export const Route = createFileRoute("/galleria")({
@@ -16,16 +16,16 @@ export const Route = createFileRoute("/galleria")({
       { title: "Galleria — Atletica 2000 e Codroipo C'è" },
       {
         name: "description",
-        content: "Immagini dalla pista, dal meeting e dagli eventi del Medio Friuli.",
+        content: "Album fotografici: pista, meeting, eventi del Medio Friuli.",
       },
       { property: "og:title", content: "Galleria — Piergiorgio Iacuzzo" },
-      { property: "og:description", content: "Immagini dalla pista, dal meeting e dagli eventi del Medio Friuli." },
+      { property: "og:description", content: "Album fotografici dagli eventi del Medio Friuli." },
       { property: "og:url", content: "https://piergiorgioiacuzzo.it/galleria" },
     ],
     links: [{ rel: "canonical", href: "https://piergiorgioiacuzzo.it/galleria" }],
   }),
 
-  loader: ({ context }) => context.queryClient.ensureQueryData(photosQO),
+  loader: ({ context }) => context.queryClient.ensureQueryData(albumsQO),
   component: GalleryPage,
   errorComponent: ({ error }) => (
     <div className="p-10 text-center text-sm text-destructive">{error.message}</div>
@@ -34,58 +34,72 @@ export const Route = createFileRoute("/galleria")({
 
 function GalleryPage() {
   const { t, lang } = useT();
-  const { data } = useSuspenseQuery(photosQO);
-  const photos = data.photos;
-  const [active, setActive] = useState<number | null>(null);
+  const { data } = useSuspenseQuery(albumsQO);
+  const { albums, counts, uncategorized } = data;
+
+  const cards: Array<{
+    slug: string;
+    title: string;
+    cover: string | null;
+    count: number;
+  }> = albums.map((a) => ({
+    slug: a.slug,
+    title: lang === "it" ? a.title_it : a.title_en || a.title_it,
+    cover: a.cover_url,
+    count: counts[a.id] ?? 0,
+  }));
+
+  if (uncategorized > 0) {
+    cards.push({
+      slug: "_uncategorized",
+      title: lang === "it" ? "Senza album" : "Uncategorized",
+      cover: null,
+      count: uncategorized,
+    });
+  }
 
   return (
     <>
       <PageHero eyebrow={t("galleria_tag")} title={t("galleria_title")} />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        {photos.length === 0 ? (
+        {cards.length === 0 ? (
           <p className="py-16 text-center text-sm text-muted-foreground">
             {t("agenda_empty")}
           </p>
         ) : (
-          <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4 [&>*]:break-inside-avoid">
-            {photos.map((p, i) => {
-              const caption = lang === "it" ? p.caption_it : p.caption_en;
-              return (
-                <button
-                  key={p.id}
-                  onClick={() => setActive(i)}
-                  className="group block w-full overflow-hidden rounded-md border border-border bg-card text-left"
-                >
-                  <img
-                    src={p.url}
-                    alt={caption || ""}
-                    loading="lazy"
-                    className="w-full transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {caption && (
-                    <div className="px-3 py-2 text-xs text-muted-foreground">{caption}</div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {cards.map((c) => (
+              <Link
+                key={c.slug}
+                to="/galleria/$slug"
+                params={{ slug: c.slug }}
+                className="group block overflow-hidden rounded-md border border-border bg-card transition-all hover:-translate-y-1 hover:border-accent hover:shadow-lg"
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-secondary">
+                  {c.cover ? (
+                    <img
+                      src={c.cover}
+                      alt={c.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-muted-foreground">
+                      <Images size={40} />
+                    </div>
                   )}
-                </button>
-              );
-            })}
+                </div>
+                <div className="flex items-center justify-between p-4">
+                  <h2 className="font-serif text-xl text-foreground">{c.title}</h2>
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                    {c.count} {c.count === 1 ? "foto" : "foto"}
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         )}
       </section>
-
-      {active !== null && photos[active] && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setActive(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
-        >
-          <img
-            src={photos[active].url}
-            alt={(lang === "it" ? photos[active].caption_it : photos[active].caption_en) || ""}
-            className="max-h-[90vh] max-w-[95vw] object-contain"
-          />
-        </div>
-      )}
     </>
   );
 }
