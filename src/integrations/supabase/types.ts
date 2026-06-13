@@ -83,8 +83,45 @@ export type Database = {
         }
         Relationships: []
       }
+      gallery_albums: {
+        Row: {
+          cover_url: string | null
+          created_at: string
+          description_en: string
+          description_it: string
+          id: string
+          slug: string
+          sort_order: number
+          title_en: string
+          title_it: string
+        }
+        Insert: {
+          cover_url?: string | null
+          created_at?: string
+          description_en?: string
+          description_it?: string
+          id?: string
+          slug: string
+          sort_order?: number
+          title_en?: string
+          title_it: string
+        }
+        Update: {
+          cover_url?: string | null
+          created_at?: string
+          description_en?: string
+          description_it?: string
+          id?: string
+          slug?: string
+          sort_order?: number
+          title_en?: string
+          title_it?: string
+        }
+        Relationships: []
+      }
       gallery_photos: {
         Row: {
+          album_id: string | null
           caption_en: string
           caption_it: string
           created_at: string
@@ -94,6 +131,7 @@ export type Database = {
           url: string
         }
         Insert: {
+          album_id?: string | null
           caption_en?: string
           caption_it?: string
           created_at?: string
@@ -103,6 +141,7 @@ export type Database = {
           url: string
         }
         Update: {
+          album_id?: string | null
           caption_en?: string
           caption_it?: string
           created_at?: string
@@ -111,7 +150,15 @@ export type Database = {
           taken_at?: string | null
           url?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "gallery_photos_album_id_fkey"
+            columns: ["album_id"]
+            isOneToOne: false
+            referencedRelation: "gallery_albums"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       news: {
         Row: {

@@ -5,6 +5,7 @@ import { adminListNews, adminUpsertNews, adminDeleteNews } from "@/lib/admin.fun
 import { Trash2, Pencil, Plus, X } from "lucide-react";
 import { Field } from "./admin.agenda";
 import { ImageUpload } from "@/components/ImageUpload";
+import { MultiImageUpload } from "@/components/MultiImageUpload";
 
 export const Route = createFileRoute("/_authenticated/admin/news")({
   component: AdminNews,
@@ -124,6 +125,14 @@ function AdminNews() {
               <Field label="Estratto (IT)" value={editing.excerpt_it || ""} onChange={(v) => setEditing({ ...editing, excerpt_it: v })} textarea />
               <Field label="Estratto (EN)" value={editing.excerpt_en || ""} onChange={(v) => setEditing({ ...editing, excerpt_en: v })} textarea />
               <Field label="Contenuto (IT)" value={editing.body_it || ""} onChange={(v) => setEditing({ ...editing, body_it: v })} textarea />
+              <MultiImageUpload
+                label="Immagini da inserire (IT/EN)"
+                onInsert={(token) =>
+                  setEditing((prev) =>
+                    prev ? { ...prev, body_it: (prev.body_it || "") + "\n\n" + token + "\n\n" } : prev,
+                  )
+                }
+              />
               <Field label="Contenuto (EN)" value={editing.body_en || ""} onChange={(v) => setEditing({ ...editing, body_en: v })} textarea />
               <ImageUpload label="Copertina" value={editing.cover_url || ""} onChange={(v) => setEditing({ ...editing, cover_url: v })} />
               <div className="grid gap-3 md:grid-cols-2">
