@@ -26,6 +26,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as GalleriaSlugRouteImport } from './routes/galleria.$slug'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminNewsRouteImport } from './routes/_authenticated/admin.news'
@@ -116,6 +117,11 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleriaSlugRoute = GalleriaSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GalleriaRoute,
+} as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -153,13 +159,14 @@ export interface FileRoutesByFullPath {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/galleria': typeof GalleriaRoute
+  '/galleria': typeof GalleriaRouteWithChildren
   '/meeting': typeof MeetingRoute
   '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/galleria/$slug': typeof GalleriaSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
   '/admin/agenda': typeof AuthenticatedAdminAgendaRoute
@@ -176,12 +183,13 @@ export interface FileRoutesByTo {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/galleria': typeof GalleriaRoute
+  '/galleria': typeof GalleriaRouteWithChildren
   '/meeting': typeof MeetingRoute
   '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
+  '/galleria/$slug': typeof GalleriaSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
   '/admin/agenda': typeof AuthenticatedAdminAgendaRoute
@@ -200,13 +208,14 @@ export interface FileRoutesById {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/galleria': typeof GalleriaRoute
+  '/galleria': typeof GalleriaRouteWithChildren
   '/meeting': typeof MeetingRoute
   '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/valori': typeof ValoriRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/galleria/$slug': typeof GalleriaSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
   '/_authenticated/admin/agenda': typeof AuthenticatedAdminAgendaRoute
@@ -232,6 +241,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/valori'
     | '/admin'
+    | '/galleria/$slug'
     | '/news/$slug'
     | '/news/'
     | '/admin/agenda'
@@ -254,6 +264,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/sitemap.xml'
     | '/valori'
+    | '/galleria/$slug'
     | '/news/$slug'
     | '/news'
     | '/admin/agenda'
@@ -278,6 +289,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/valori'
     | '/_authenticated/admin'
+    | '/galleria/$slug'
     | '/news/$slug'
     | '/news/'
     | '/_authenticated/admin/agenda'
@@ -296,7 +308,7 @@ export interface RootRouteChildren {
   CodroipoCeRoute: typeof CodroipoCeRoute
   ContattiRoute: typeof ContattiRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
-  GalleriaRoute: typeof GalleriaRoute
+  GalleriaRoute: typeof GalleriaRouteWithChildren
   MeetingRoute: typeof MeetingRoute
   MemindsportRoute: typeof MemindsportRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -427,6 +439,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/galleria/$slug': {
+      id: '/galleria/$slug'
+      path: '/$slug'
+      fullPath: '/galleria/$slug'
+      preLoaderRoute: typeof GalleriaSlugRouteImport
+      parentRoute: typeof GalleriaRoute
+    }
     '/_authenticated/admin': {
       id: '/_authenticated/admin'
       path: '/admin'
@@ -493,6 +512,18 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface GalleriaRouteChildren {
+  GalleriaSlugRoute: typeof GalleriaSlugRoute
+}
+
+const GalleriaRouteChildren: GalleriaRouteChildren = {
+  GalleriaSlugRoute: GalleriaSlugRoute,
+}
+
+const GalleriaRouteWithChildren = GalleriaRoute._addFileChildren(
+  GalleriaRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
@@ -503,7 +534,7 @@ const rootRouteChildren: RootRouteChildren = {
   CodroipoCeRoute: CodroipoCeRoute,
   ContattiRoute: ContattiRoute,
   CookiePolicyRoute: CookiePolicyRoute,
-  GalleriaRoute: GalleriaRoute,
+  GalleriaRoute: GalleriaRouteWithChildren,
   MeetingRoute: MeetingRoute,
   MemindsportRoute: MemindsportRoute,
   PrivacyRoute: PrivacyRoute,
