@@ -103,9 +103,37 @@ function NewsDetail() {
           className="mt-8 w-full rounded-md border border-border object-cover"
         />
       )}
-      <div className="prose prose-lg mt-8 max-w-none whitespace-pre-line text-foreground/85">
-        {body}
+      <div className="prose prose-lg mt-8 max-w-none text-foreground/85">
+        <NewsBody text={body || ""} />
       </div>
     </article>
+  );
+}
+
+function NewsBody({ text }: { text: string }) {
+  // Split body on [[img:URL]] tokens and render images inline.
+  const parts = text.split(/(\[\[img:[^\]]+\]\])/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const m = part.match(/^\[\[img:([^\]]+)\]\]$/);
+        if (m) {
+          return (
+            <img
+              key={i}
+              src={m[1]}
+              alt=""
+              loading="lazy"
+              className="my-6 w-full rounded-md border border-border object-cover"
+            />
+          );
+        }
+        return (
+          <p key={i} className="whitespace-pre-line">
+            {part}
+          </p>
+        );
+      })}
+    </>
   );
 }
