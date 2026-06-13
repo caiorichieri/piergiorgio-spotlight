@@ -172,6 +172,7 @@ type PhotoInput = {
   caption_en?: string;
   taken_at?: string | null;
   sort_order?: number;
+  album_id?: string | null;
 };
 
 export const adminUpsertPhoto = createServerFn({ method: "POST" })
@@ -186,6 +187,7 @@ export const adminUpsertPhoto = createServerFn({ method: "POST" })
       caption_en: data.caption_en ?? "",
       taken_at: data.taken_at || null,
       sort_order: data.sort_order ?? 0,
+      album_id: data.album_id || null,
     };
     const q = data.id
       ? supabaseAdmin.from("gallery_photos").update(payload).eq("id", data.id)
@@ -202,6 +204,66 @@ export const adminDeletePhoto = createServerFn({ method: "POST" })
     await assertAdmin(context);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { error } = await supabaseAdmin.from("gallery_photos").delete().eq("id", data.id);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+/* ------------------ ALBUMS ------------------ */
+
+export const adminListAlbums = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    await assertAdmin(context);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await supabaseAdmin
+      .from("gallery_albums")
+      .select("*")
+      .order("sort_order", { ascending: true });
+    if (error) throw new Error(error.message);
+    return { albums: data ?? [] };
+  });
+
+type AlbumInput = {
+  id?: string;
+  slug: string;
+  title_it: string;
+  title_en?: string;
+  description_it?: string;
+  description_en?: string;
+  cover_url?: string | null;
+  sort_order?: number;
+};
+
+export const adminUpsertAlbum = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((d: AlbumInput) => d)
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const payload = {
+      slug: data.slug,
+      title_it: data.title_it,
+      title_en: data.title_en ?? "",
+      description_it: data.description_it ?? "",
+      description_en: data.description_en ?? "",
+      cover_url: data.cover_url || null,
+      sort_order: data.sort_order ?? 0,
+    };
+    const q = data.id
+      ? supabaseAdmin.from("gallery_albums").update(payload).eq("id", data.id)
+      : supabaseAdmin.from("gallery_albums").insert(payload);
+    const { error } = await q;
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+export const adminDeleteAlbum = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((d: { id: string }) => d)
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.from("gallery_albums").delete().eq("id", data.id);
     if (error) throw new Error(error.message);
     return { ok: true };
   });
