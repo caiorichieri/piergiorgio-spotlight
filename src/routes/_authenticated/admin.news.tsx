@@ -5,6 +5,7 @@ import { adminListNews, adminUpsertNews, adminDeleteNews } from "@/lib/admin.fun
 import { Trash2, Pencil, Plus, X } from "lucide-react";
 import { Field } from "./admin.agenda";
 import { ImageUpload } from "@/components/ImageUpload";
+import { MultiImageUpload } from "@/components/MultiImageUpload";
 
 export const Route = createFileRoute("/_authenticated/admin/news")({
   component: AdminNews,
