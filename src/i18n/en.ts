@@ -61,6 +61,9 @@ export const en: typeof it = {
     "Under his leadership, ASD Atletica 2000 has become the regional reference for athletes with disabilities: the Codroipo track is open and equipped for every type of paralympic practice. In 2019 alone, 10 paralympic records were set.",
   atletica_p4:
     "On infrastructure, Iacuzzo has secured funding through regional grants for structural work over the years, culminating in 2025 with €700,000 allocated to renovate and expand the track — one of the most significant investments in the club's history.",
+  atletica_p5:
+    "Iacuzzo's work would not have been possible without the active support of the Municipality of Codroipo. Together, Iacuzzo and the municipal administration worked side by side to obtain a significant contribution for the athletics track. It was a joint effort, in which the Municipality demonstrated great commitment and investment, resulting in an important outcome for the entire Codroipo community.",
+
 
   timeline_tag: "The journey",
   timeline_title: "A growth built year by year.",

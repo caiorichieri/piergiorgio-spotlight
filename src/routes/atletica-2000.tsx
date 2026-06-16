@@ -69,6 +69,7 @@ function AtleticaPage() {
           <Reveal as="p" delay={100}>{t("atletica_p2")}</Reveal>
           <Reveal as="p" delay={200}>{t("atletica_p3")}</Reveal>
           <Reveal as="p" delay={300}>{t("atletica_p4")}</Reveal>
+          <Reveal as="p" delay={400}>{t("atletica_p5")}</Reveal>
         </div>
       </article>
     </>
