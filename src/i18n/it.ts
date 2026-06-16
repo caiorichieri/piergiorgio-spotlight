@@ -62,6 +62,9 @@ export const it = {
     "Sotto la sua guida, la ASD Atletica 2000 è diventata punto di riferimento regionale per gli atleti con disabilità: la pista di Codroipo è aperta e attrezzata per tutte le tipologie di pratica paralimpica. Nella sola stagione 2019 sono stati registrati 10 record paralimpici.",
   atletica_p4:
     "Sul fronte delle infrastrutture, Iacuzzo ha ottenuto nel corso degli anni finanziamenti da bandi regionali per interventi strutturali, culminati nel 2025 con la concessione di 700.000 euro per la ristrutturazione e l'ampliamento della pista — uno degli investimenti più significativi della storia del club.",
+  atletica_p5:
+    "Il lavoro di Iacuzzo non sarebbe stato possibile senza l'appoggio attivo del Comune di Codroipo. Insieme, Iacuzzo e l'amministrazione comunale hanno lavorato fianco a fianco per ottenere un contributo significativo destinato alla pista di atletica. È stato uno sforzo congiunto, nel quale il Comune ha dimostrato un grande impegno e investimento, che ha portato un risultato importante per tutta la comunità di Codroipo.",
+
 
   timeline_tag: "Il percorso",
   timeline_title: "Una crescita costruita anno per anno.",
