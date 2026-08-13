@@ -10,7 +10,7 @@ const albumsQO = queryOptions({
   queryFn: () => getAlbums(),
 });
 
-export const Route = createFileRoute("/galleria")({
+export const Route = createFileRoute("/galleria/")({
   head: () => ({
     meta: [
       { title: "Galleria — Atletica 2000 e Codroipo C'è" },
