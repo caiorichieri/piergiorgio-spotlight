@@ -14,7 +14,6 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MemindsportRouteImport } from './routes/memindsport'
 import { Route as MeetingRouteImport } from './routes/meeting'
-import { Route as GalleriaRouteImport } from './routes/galleria'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContattiRouteImport } from './routes/contatti'
 import { Route as CodroipoCeRouteImport } from './routes/codroipo-ce'
@@ -25,6 +24,7 @@ import { Route as AgendaRouteImport } from './routes/agenda'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as GalleriaIndexRouteImport } from './routes/galleria.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as GalleriaSlugRouteImport } from './routes/galleria.$slug'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -56,11 +56,6 @@ const MemindsportRoute = MemindsportRouteImport.update({
 const MeetingRoute = MeetingRouteImport.update({
   id: '/meeting',
   path: '/meeting',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleriaRoute = GalleriaRouteImport.update({
-  id: '/galleria',
-  path: '/galleria',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookiePolicyRoute = CookiePolicyRouteImport.update({
@@ -112,15 +107,20 @@ const NewsIndexRoute = NewsIndexRouteImport.update({
   path: '/news/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleriaIndexRoute = GalleriaIndexRouteImport.update({
+  id: '/galleria/',
+  path: '/galleria/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsSlugRoute = NewsSlugRouteImport.update({
   id: '/news/$slug',
   path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleriaSlugRoute = GalleriaSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => GalleriaRoute,
+  id: '/galleria/$slug',
+  path: '/galleria/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
@@ -159,7 +159,6 @@ export interface FileRoutesByFullPath {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/galleria': typeof GalleriaRouteWithChildren
   '/meeting': typeof MeetingRoute
   '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
@@ -168,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/galleria/$slug': typeof GalleriaSlugRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/galleria/': typeof GalleriaIndexRoute
   '/news/': typeof NewsIndexRoute
   '/admin/agenda': typeof AuthenticatedAdminAgendaRoute
   '/admin/gallery': typeof AuthenticatedAdminGalleryRoute
@@ -183,7 +183,6 @@ export interface FileRoutesByTo {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/galleria': typeof GalleriaRouteWithChildren
   '/meeting': typeof MeetingRoute
   '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
@@ -191,6 +190,7 @@ export interface FileRoutesByTo {
   '/valori': typeof ValoriRoute
   '/galleria/$slug': typeof GalleriaSlugRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/galleria': typeof GalleriaIndexRoute
   '/news': typeof NewsIndexRoute
   '/admin/agenda': typeof AuthenticatedAdminAgendaRoute
   '/admin/gallery': typeof AuthenticatedAdminGalleryRoute
@@ -208,7 +208,6 @@ export interface FileRoutesById {
   '/codroipo-ce': typeof CodroipoCeRoute
   '/contatti': typeof ContattiRoute
   '/cookie-policy': typeof CookiePolicyRoute
-  '/galleria': typeof GalleriaRouteWithChildren
   '/meeting': typeof MeetingRoute
   '/memindsport': typeof MemindsportRoute
   '/privacy': typeof PrivacyRoute
@@ -217,6 +216,7 @@ export interface FileRoutesById {
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/galleria/$slug': typeof GalleriaSlugRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/galleria/': typeof GalleriaIndexRoute
   '/news/': typeof NewsIndexRoute
   '/_authenticated/admin/agenda': typeof AuthenticatedAdminAgendaRoute
   '/_authenticated/admin/gallery': typeof AuthenticatedAdminGalleryRoute
@@ -234,7 +234,6 @@ export interface FileRouteTypes {
     | '/codroipo-ce'
     | '/contatti'
     | '/cookie-policy'
-    | '/galleria'
     | '/meeting'
     | '/memindsport'
     | '/privacy'
@@ -243,6 +242,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/galleria/$slug'
     | '/news/$slug'
+    | '/galleria/'
     | '/news/'
     | '/admin/agenda'
     | '/admin/gallery'
@@ -258,7 +258,6 @@ export interface FileRouteTypes {
     | '/codroipo-ce'
     | '/contatti'
     | '/cookie-policy'
-    | '/galleria'
     | '/meeting'
     | '/memindsport'
     | '/privacy'
@@ -266,6 +265,7 @@ export interface FileRouteTypes {
     | '/valori'
     | '/galleria/$slug'
     | '/news/$slug'
+    | '/galleria'
     | '/news'
     | '/admin/agenda'
     | '/admin/gallery'
@@ -282,7 +282,6 @@ export interface FileRouteTypes {
     | '/codroipo-ce'
     | '/contatti'
     | '/cookie-policy'
-    | '/galleria'
     | '/meeting'
     | '/memindsport'
     | '/privacy'
@@ -291,6 +290,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin'
     | '/galleria/$slug'
     | '/news/$slug'
+    | '/galleria/'
     | '/news/'
     | '/_authenticated/admin/agenda'
     | '/_authenticated/admin/gallery'
@@ -308,13 +308,14 @@ export interface RootRouteChildren {
   CodroipoCeRoute: typeof CodroipoCeRoute
   ContattiRoute: typeof ContattiRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
-  GalleriaRoute: typeof GalleriaRouteWithChildren
   MeetingRoute: typeof MeetingRoute
   MemindsportRoute: typeof MemindsportRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ValoriRoute: typeof ValoriRoute
+  GalleriaSlugRoute: typeof GalleriaSlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
+  GalleriaIndexRoute: typeof GalleriaIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
 }
 
@@ -353,13 +354,6 @@ declare module '@tanstack/react-router' {
       path: '/meeting'
       fullPath: '/meeting'
       preLoaderRoute: typeof MeetingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/galleria': {
-      id: '/galleria'
-      path: '/galleria'
-      fullPath: '/galleria'
-      preLoaderRoute: typeof GalleriaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookie-policy': {
@@ -432,6 +426,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/galleria/': {
+      id: '/galleria/'
+      path: '/galleria'
+      fullPath: '/galleria/'
+      preLoaderRoute: typeof GalleriaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news/$slug': {
       id: '/news/$slug'
       path: '/news/$slug'
@@ -441,10 +442,10 @@ declare module '@tanstack/react-router' {
     }
     '/galleria/$slug': {
       id: '/galleria/$slug'
-      path: '/$slug'
+      path: '/galleria/$slug'
       fullPath: '/galleria/$slug'
       preLoaderRoute: typeof GalleriaSlugRouteImport
-      parentRoute: typeof GalleriaRoute
+      parentRoute: typeof rootRouteImport
     }
     '/_authenticated/admin': {
       id: '/_authenticated/admin'
@@ -512,18 +513,6 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
-interface GalleriaRouteChildren {
-  GalleriaSlugRoute: typeof GalleriaSlugRoute
-}
-
-const GalleriaRouteChildren: GalleriaRouteChildren = {
-  GalleriaSlugRoute: GalleriaSlugRoute,
-}
-
-const GalleriaRouteWithChildren = GalleriaRoute._addFileChildren(
-  GalleriaRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
@@ -534,13 +523,14 @@ const rootRouteChildren: RootRouteChildren = {
   CodroipoCeRoute: CodroipoCeRoute,
   ContattiRoute: ContattiRoute,
   CookiePolicyRoute: CookiePolicyRoute,
-  GalleriaRoute: GalleriaRouteWithChildren,
   MeetingRoute: MeetingRoute,
   MemindsportRoute: MemindsportRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ValoriRoute: ValoriRoute,
+  GalleriaSlugRoute: GalleriaSlugRoute,
   NewsSlugRoute: NewsSlugRoute,
+  GalleriaIndexRoute: GalleriaIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
 }
 export const routeTree = rootRouteImport
