@@ -9,6 +9,9 @@ import { ExternalLink, MapPin, Calendar } from "lucide-react";
 const eventsQO = queryOptions({
   queryKey: ["events"],
   queryFn: () => getEvents(),
+  // sempre aggiornato: nuovi eventi appaiono subito, anche su pagine già servite in cache
+  staleTime: 0,
+  refetchOnMount: "always",
 });
 
 export const Route = createFileRoute("/agenda")({
