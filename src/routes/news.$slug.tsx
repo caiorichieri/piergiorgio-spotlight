@@ -58,7 +58,7 @@ export const Route = createFileRoute("/news/$slug")({
                 headline: n.title_it,
                 description: desc,
                 datePublished: n.published_at,
-                ...(n.cover_url ? { image: n.cover_url } : {}),
+                ...(cover ? { image: cover } : {}),
                 author: { "@type": "Person", name: "Piergiorgio Iacuzzo" },
                 mainEntityOfPage: url,
               }),
