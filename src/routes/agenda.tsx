@@ -39,7 +39,12 @@ export const Route = createFileRoute("/agenda")({
 function AgendaPage() {
   const { t, lang } = useT();
   const { data } = useSuspenseQuery(eventsQO);
-  const events = data.events;
+  // mostra solo gli eventi non ancora conclusi
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+  const events = data.events.filter(
+    (e) => new Date(e.ends_at ?? e.starts_at).getTime() >= todayStart.getTime(),
+  );
 
   return (
     <>
