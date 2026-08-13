@@ -25,6 +25,11 @@ export const Route = createFileRoute("/news/$slug")({
           ? `${n.title_it} — News dal Medio Friuli.`
           : "Aggiornamenti, comunicati e racconti dal territorio del Medio Friuli.");
     const url = `https://piergiorgioiacuzzo.it/news/${params.slug}`;
+    const cover = n?.cover_url
+      ? n.cover_url.startsWith("http")
+        ? n.cover_url
+        : `https://piergiorgioiacuzzo.it${n.cover_url.startsWith("/") ? "" : "/"}${n.cover_url}`
+      : null;
     return {
       meta: [
         { title: `${title} — Piergiorgio Iacuzzo` },
@@ -33,7 +38,14 @@ export const Route = createFileRoute("/news/$slug")({
         { property: "og:description", content: desc },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        ...(n?.cover_url ? [{ property: "og:image", content: n.cover_url }] : []),
+        { name: "twitter:card", content: "summary_large_image" },
+        ...(cover
+          ? [
+              { property: "og:image", content: cover },
+              { property: "og:image:alt", content: title },
+              { name: "twitter:image", content: cover },
+            ]
+          : []),
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: n
@@ -46,7 +58,7 @@ export const Route = createFileRoute("/news/$slug")({
                 headline: n.title_it,
                 description: desc,
                 datePublished: n.published_at,
-                ...(n.cover_url ? { image: n.cover_url } : {}),
+                ...(cover ? { image: cover } : {}),
                 author: { "@type": "Person", name: "Piergiorgio Iacuzzo" },
                 mainEntityOfPage: url,
               }),
