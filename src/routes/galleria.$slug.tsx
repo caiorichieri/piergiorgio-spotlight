@@ -21,13 +21,24 @@ export const Route = createFileRoute("/galleria/$slug")({
     const a = loaderData?.album;
     const title = a?.title_it ?? "Album";
     const url = `https://piergiorgioiacuzzo.it/galleria/${params.slug}`;
+    const cover = a?.cover_url
+      ? a.cover_url.startsWith("http")
+        ? a.cover_url
+        : `https://piergiorgioiacuzzo.it${a.cover_url.startsWith("/") ? "" : "/"}${a.cover_url}`
+      : null;
     return {
       meta: [
         { title: `${title} — Galleria` },
         { name: "description", content: a?.description_it || `Foto dall'album ${title}.` },
         { property: "og:title", content: title },
         { property: "og:url", content: url },
-        ...(a?.cover_url ? [{ property: "og:image", content: a.cover_url }] : []),
+        { name: "twitter:card", content: "summary_large_image" },
+        ...(cover
+          ? [
+              { property: "og:image", content: cover },
+              { name: "twitter:image", content: cover },
+            ]
+          : []),
       ],
       links: [{ rel: "canonical", href: url }],
     };
